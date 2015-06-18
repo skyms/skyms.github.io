@@ -27,9 +27,6 @@
 		{ "done": true, "filename": "changeSeriesBorderColor.js", "name": "Change Series Border Color", "group": "Chart", "description": "Change the border color of Series1 to be red" }, 
 		{ "done": true, "filename": "changeSeriesFillColor.js", "name": "Change Series Fill Color", "group": "Chart", "description": "Change the fill color of Series1 to be red" }, 
 		{ "done": true, "filename": "configureAxis.js", "name": "Configure Axis", "group": "Chart", "description": "Configure value Axis, set maximum to be 5, minimum to be 0, major unit to be 1 and minor unit to be 0.2" }, 
-		{ "done": true, "filename": "deleteAxisTitle.js", "name": "Hide Axis Title", "group": "Chart", "description": "Hide the Title of Value Axis" }, 
-		{ "done": true, "filename": "deleteChart.js", "name": "Delete Chart", "group": "Chart", "description": "Delete Chart Named Chart1" }, 
-		{ "done": true, "filename": "deleteChartTitle.js", "name": "Hide Chart Title", "group": "Chart", "description": "Hide the title of Chart1" }, 
 		{ "done": true, "filename": "formatChartTitle.js", "name": "Format Chart Title", "group": "Chart", "description": "Make the title of Chart1 to be bold and red" }, 
 		{ "done": true, "filename": "getChartByName.js", "name": "Get Chart By Name", "group": "Chart", "description": "Get the Chart named Chart1" }, 
 		{ "done": true, "filename": "getChartTitle.js", "name": "Get Chart Title", "group": "Chart", "description": "Get the text of Chart Title from Chart1" }, 
@@ -50,6 +47,9 @@
 		{ "done": false, "filename": "clearRowBackground.js", "name": "Clear Table Row Formatting", "group": "Table;Formatting", "description": "Clear formatting for all data rows in a table"},
 		{ "done": true, "filename": "getTablesInWorkbook.js", "name": "Get Tables in Workbook", "group": "Table", "description": "Retrieve the list of tables in the current workbook"},
 		{ "done": true, "filename": "addAxisTitle.js", "name": "Add Axis Title", "group": "Chart", "description": "Add Values as the title for the value Axis" },  
+		{ "done": true, "filename": "deleteAxisTitle.js", "name": "Hide Axis Title", "group": "Chart", "description": "Hide the Title of Value Axis" }, 
+		{ "done": true, "filename": "deleteChart.js", "name": "Delete Chart", "group": "Chart", "description": "Delete Chart Named Chart1" }, 
+		{ "done": true, "filename": "deleteChartTitle.js", "name": "Hide Chart Title", "group": "Chart", "description": "Hide the title of Chart1" }, 
 		{ "done": false, "filename": "deleteActiveWorksheet.js", "name": "Delete Active Worksheet", "group": "Worksheet", "description": "Delete the active worksheet from the workbook"}
 	],
 	"groups": [
