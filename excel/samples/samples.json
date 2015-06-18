@@ -23,7 +23,7 @@
 		{ "done": true, "filename": "addChartTitle.js", "name": "Set Chart Title", "group": "Chart", "description": "Add 'New Title' as the title of Chart1" }, 
 		{ "done": true, "filename": "addSeriesNameToDataLabels.js", "name": "Show Data Labels Series Name", "group": "Chart", "description": "Make Series Name shown in Datalabels" }, 
 		{ "done": true, "filename": "changeChartBackgroundColor.js", "name": "Change Chart Background Color", "group": "Chart", "description": "Change the background color of Chart1 to red." }, 
-		{ "done": true, "filename": "changeDataLabelsPosition.js", "name": "Change Data Labels Position", "group": "Chart", "description": "Change All datalabels to be shown on top" }, 
+		{ "done": false, "filename": "changeDataLabelsPosition.js", "name": "Change Data Labels Position", "group": "Chart", "description": "Change All datalabels to be shown on top" }, 
 		{ "done": true, "filename": "changeSeriesBorderColor.js", "name": "Change Series Border Color", "group": "Chart", "description": "Change the border color of Series1 to be red" }, 
 		{ "done": true, "filename": "changeSeriesFillColor.js", "name": "Change Series Fill Color", "group": "Chart", "description": "Change the fill color of Series1 to be red" }, 
 		{ "done": true, "filename": "configureAxis.js", "name": "Configure Axis", "group": "Chart", "description": "Configure value Axis, set maximum to be 5, minimum to be 0, major unit to be 1 and minor unit to be 0.2" }, 
