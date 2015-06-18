@@ -26,7 +26,6 @@
 		{ "done": true, "filename": "getChartByName.js", "name": "Get Chart By Name", "group": "Chart", "description": "Get the Chart named Chart1" }, 
 		{ "done": true, "filename": "getChartTitle.js", "name": "Get Chart Title", "group": "Chart", "description": "Get the text of Chart Title from Chart1" }, 
 		{ "done": true, "filename": "changeChartBackgroundColor.js", "name": "Change Chart Background Color", "group": "Chart", "description": "Change the background color of Chart1 to red." }, 
-		{ "done": true, "filename": "changeSeriesBorderColor.js", "name": "Change Series Border Color", "group": "Chart", "description": "Change the border color of Series1 to be red" }, 
 		{ "done": true, "filename": "changeSeriesFillColor.js", "name": "Change Series Fill Color", "group": "Chart", "description": "Change the fill color of Series1 to be red" }, 
 		{ "done": true, "filename": "configureAxis.js", "name": "Configure Axis", "group": "Chart", "description": "Configure value Axis, set maximum to be 5, minimum to be 0, major unit to be 1 and minor unit to be 0.2" }, 
 		{ "done": true, "filename": "formatChartTitle.js", "name": "Format Chart Title", "group": "Chart", "description": "Make the title of Chart1 to be bold and red" }, 
