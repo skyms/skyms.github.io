@@ -49,7 +49,7 @@
 		{ "done": true, "filename": "formatTableRows.js", "name": "Format Table Rows Based On Values", "group": "Table;Formatting;Complex", "description": "Format rows of 'Table1' with 2nd cell greater than 2 in green, other rows in red."},
 		{ "done": true, "filename": "formatLargestRow.js", "name": "Format Table Row Based On Largest Value", "group": "Table;Formatting;Complex", "description": "Format row of a table based on a specific column's largest value"},
 		{ "done": false, "filename": "clearRowBackground.js", "name": "Clear Table Row Formatting", "group": "Table;Formatting", "description": "Clear formatting for all data rows in a table"},
-				{ "done": true, "filename": "getTablesInWorkbook.js", "name": "Get Tables in Workbook", "group": "Table", "description": "Retrieve the list of tables in the current workbook"},
+		{ "done": true, "filename": "getTablesInWorkbook.js", "name": "Get Tables in Workbook", "group": "Table", "description": "Retrieve the list of tables in the current workbook"},
 		{ "done": false, "filename": "deleteActiveWorksheet.js", "name": "Delete Active Worksheet", "group": "Worksheet", "description": "Delete the active worksheet from the workbook"}
 	],
 	"groups": [
