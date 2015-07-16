@@ -1,10 +1,12 @@
-/// <reference pashowAlert() th="myscript.js" />
+﻿/// <reference path="../App.js" />
 
+
+// The initialize function must be run each time a new page is loaded
 Office.initialize = function (reason) {
     insideOffice = true;
-  
 };
 
+//Rename the current worksheet to Diet and add my diet data to the worksheet
 function getMyDietData() {
     // create a new Request Context
     var ctx = new Excel.RequestContext();
@@ -35,14 +37,14 @@ function getMyDietData() {
     ctx.workbook.worksheets.getActiveWorksheet().getRange("A1:I16").values = values;
     ctx.executeAsync()
         .then(function () {
-            console.log("My Diet Data Inserted!");
+            app.showNotification("My Diet Data Inserted!");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
         });
 }
 
-
+    
 // Format Diet Worksheet, change the data format, insert title & subtitle and create a table.
 function formatMyDietData() {
     // create a new Request Context
@@ -50,10 +52,10 @@ function formatMyDietData() {
 
     // get the Diet Worksheet
     var dietSheet = ctx.workbook.worksheets.getItem("Diet");
-
+        
     var dietRange;
     // insert a range to make room for titles
-    dietSheet.getRange("A1:I4").insert("Down");
+    dietSheet.getRange("A1:I4").insert("Down");   
     ctx.executeAsync()
         .then(function () {
             //insert tiltes and subtitles, together with formatting
@@ -78,7 +80,7 @@ function formatMyDietData() {
             // Get a Range
             dietRange = ctx.workbook.worksheets.getItem("Diet").getUsedRange();
             //load rowCount in order to know the last row of the table
-            ctx.load(dietRange, "rowCount");
+            ctx.load(dietRange,"rowCount");
         })
         .then(ctx.executeAsync)
         .then(function () {
@@ -86,11 +88,11 @@ function formatMyDietData() {
             var dietTable = ctx.workbook.tables.add("Diet!A5:I" + dietRange.rowCount, true);
             // insert the formula to get the maximum 
             ctx.workbook.worksheets.getItem("Diet").getRange("A4:A4").formulas = "=MAX(F6:F" + dietRange.rowCount + ")";
-
+               
         })
         .then(ctx.executeAsync)
         .then(function () {
-            alert("Diet Worksheet Format Updated!");
+            app.showNotification("Diet Worksheet Format Updated!");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
@@ -114,7 +116,7 @@ function highlightMax() {
         .then(function () {
 
             // loop through and find the row with the maximum value
-            for (var i = 6; i < dietRange.rowCount; i++) {
+            for (var i = 6; i<dietRange.rowCount; i++){
                 if (dietRange.values[i][5] == maxMeal.values[0][0]) {
                     var j = i + 1;
                     var rangeAddr = "A" + j + ":I" + j;
@@ -126,7 +128,7 @@ function highlightMax() {
         })
         .then(ctx.executeAsync)
         .then(function () {
-            console.log("Meal wtih Most Calories Highlighted!");
+            app.showNotification("Meal wtih Most Calories Highlighted!");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
@@ -142,13 +144,13 @@ function createDashboardWorksheet() {
         .then(function () {
             var i;
             // loop through worksheets collection to find out whether Goals already exsits
-            for (i = 0; i < worksheets.items.length; i++) {
-                if (worksheets.items[i].name == "Goals") {
+            for(i = 0; i < worksheets.items.length; i++) {
+                if (worksheets.items[i].name == "Goals"){
                     break;
                 }
             }
             // if it doesn't exist, add a new worksheet.
-            if (worksheets.items.length == i) {
+            if (worksheets.items.length == i){
                 worksheets.add("Goals");
                 return ctx.executeAsync();
             }
@@ -159,7 +161,7 @@ function createDashboardWorksheet() {
         })
         .then(ctx.executeAsync)
         .then(function () {
-            console.log("Worksheet Goals is Created and Activated.");
+            app.showNotification("Worksheet Goals is Created and Activated.");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
@@ -175,7 +177,7 @@ function formatGoals() {
         var rangeAddr = "A" + i + ":A" + i;
         if (i % 2 == 0) {
             goalsSheet.getRange(rangeAddr).format.font.name = "Arial";
-            goalsSheet.getRange(rangeAddr).format.font.size = 11;
+            goalsSheet.getRange(rangeAddr).format.font.size = 11; 
         }
         else {
             goalsSheet.getRange(rangeAddr).format.font.name = "Arial Black";
@@ -220,7 +222,7 @@ function formatGoals() {
 
     ctx.executeAsync()
         .then(function () {
-            console.log("Worksheet Goals Updated!");
+            app.showNotification("Worksheet Goals Updated!");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
@@ -240,7 +242,7 @@ function insertGoals() {
 
     ctx.executeAsync()
         .then(function () {
-            console.log("Sample Goals Defined");
+            app.showNotification("Sample Goals Defined");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
@@ -277,9 +279,11 @@ function createChart() {
         })
         .then(ctx.executeAsync)
         .then(function () {
-            console.log("Chart Created!");
+            app.showNotification("Chart Created!");
         })
         .catch(function (error) {
             console.log(JSON.stringify(error));
         });
 }
+
+
