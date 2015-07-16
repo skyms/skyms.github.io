@@ -1,4 +1,10 @@
 /// <reference pashowAlert() th="myscript.js" />
+
+Office.initialize = function (reason) {
+    insideOffice = true;
+  
+};
+
 function getMyDietData() {
     // create a new Request Context
     var ctx = new Excel.RequestContext();
