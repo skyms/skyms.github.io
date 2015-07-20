@@ -12,7 +12,7 @@ ctx.executeAsync().then(function () {
 	}
 	
 	var largestRowRng = rows.getItemAt(largestRow).getRange();
-	largestRowRng.format.background.color = "#ff0000";
+	largestRowRng.format.fill.color = "#ff0000";
 	
 	ctx.executeAsync().then();
 });	

@@ -7,10 +7,10 @@ ctx.executeAsync().then(function () {
 		var rng = rows.getItemAt(i).getRange();
 		
 		if (rows.items[i].values[0][1] > 2){
-			rng.format.background.color = "#ff0000";
+			rng.format.fill.color = "#ff0000";
 		}
 		else{
-			rng.format.background.color = "#00ff00";
+			rng.format.fill.color = "#00ff00";
 		}
 		ctx.executeAsync().then();
 	}
