@@ -1,6 +1,6 @@
 //Create a table binding to monitor data changes in the table. When data is changed, the background color of the table will be changed to orange.
  
-function addEventHandler() {
+
  
     //Create Table1
     var ctx = new Excel.RequestContext();
@@ -23,7 +23,7 @@ function addEventHandler() {
             Office.select("bindings#myBinding").addHandlerAsync(Office.EventType.BindingDataChanged, onBindingDataChanged);
         }
     });
-}
+
  
 // when data in the table is changed, this event will be triggered.
 function onBindingDataChanged(eventArgs) {
