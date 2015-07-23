@@ -21,6 +21,8 @@
         else {
             // If succeeded, then add event handler to the table binding.
             Office.select("bindings#myBinding").addHandlerAsync(Office.EventType.BindingDataChanged, onBindingDataChanged);
+            console.log("done");
+            
         }
     });
 
