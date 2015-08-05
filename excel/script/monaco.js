@@ -17,9 +17,10 @@ var MonacoEditorIntegration;
             tabSize: 4,
             insertSpaces: false
         });
+        /*
         document.getElementById(textAreaId).addEventListener('keyup', function () {
             storeCurrentJSBuffer();
-        });
+        });*/
 
         if (window.parent.document.location.protocol == "file:") {
             intellisensePaths = [];
