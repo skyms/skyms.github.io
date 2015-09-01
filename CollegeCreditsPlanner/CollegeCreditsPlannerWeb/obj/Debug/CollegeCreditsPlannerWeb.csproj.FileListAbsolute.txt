@@ -1,0 +1,6 @@
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\bin\CollegeCreditsPlannerWeb.dll.config
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\bin\CollegeCreditsPlannerWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\bin\CollegeCreditsPlannerWeb.pdb
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\obj\Debug\CollegeCreditsPlannerWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\obj\Debug\CollegeCreditsPlannerWeb.pdb
+C:\Users\umas\Documents\Visual Studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlannerWeb\obj\Debug\CollegeCreditsPlannerWeb.csprojResolveAssemblyReference.cache

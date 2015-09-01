@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\Excel addin 2 - Excel Sheet SwitcherManifest.xml
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet Switcher\bin\Debug\Excel addin 2 - Excel Sheet Switcher.debugapp

@@ -1,0 +1,7 @@
+False
+c5d5e61e-e308-443c-ac54-b9dde36a5b6a246239a8-451a-4068-8423-dc9885ca6552
+{e0403771-4caf-4e48-a72e-2782bd4d2333}{0e54d3b8-f8bc-4827-a7ac-cbfd6a29f5ae}
+{51780e83-8dde-4e1a-b9a5-3a05a91573ea}
+1.0.0.0
+Excel addin 2 - Excel Sheet Switcher
+_layouts/15/

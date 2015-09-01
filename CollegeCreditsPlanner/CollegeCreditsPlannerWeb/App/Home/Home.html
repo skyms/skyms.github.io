@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title></title>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="css/external/jquery/jquery.js"></script>
+    <script src="css/jquery-ui.js"></script>
+    <link href="css/jquery-ui.theme.css" rel="stylesheet">
+
+
+    <link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js" type="text/javascript"></script>
+
+    <script src="https://oep.azurewebsites.net/preview/4229.1005/office.runtime.js"></script>
+    <script src="https://oep.azurewebsites.net/preview/4229.1005/excel.js"></script>
+
+    <link href="../App.css" rel="stylesheet" type="text/css" />
+    <script src="../App.js" type="text/javascript"></script>
+
+    <link href="Home.css" rel="stylesheet" type="text/css" />
+    <script src="Home.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="content-header">
+        <div class="padding">
+            <h1>Graduate on time</h1>
+        </div>
+    </div>
+    <div id="content-main">
+        <div class="padding">
+            <h2 class="demoHeaders">Add a Course</h2>
+            <label>Course name:</label>
+            <input type="text" id="coursename" />
+            <br />
+            <br />
+
+            <label>Course ID: </label>
+            <br />
+            <input type="text" id="courseid" />
+            <br />
+            <br />
+
+            <label>Degree requirements:</label>
+            <br />
+            <select class="selectmenu large" id="degree-requirements">
+                <option value="Academic Major" selected="selected">Academic Major</option>
+                <option value="Academic Minor">Academic Minor</option>
+                <option value="Elective Course">Elective Course</option>
+                <option value="General Study">General Study</option>
+            </select>
+            <br />
+            <br />
+
+            <label>Credits: </label>
+            <input type="number" id="credits" class="numberField" min="1" max="999" />
+            <br />
+            <br />
+
+            <label>Semester: </label>
+            <select class="selectmenu large" id="semester">
+                <option value="nil" selected="selected">Semester</option>
+            </select>
+            <br />
+            <br />
+
+            <label>Completed? </label>
+            <br />
+            <input type="radio" name="completed" id="yes" value="yes" /><label for ="yes">Yes</label>
+            <input type="radio" name="completed" id="no" value="no" /><label for="no">No</label>
+            <br />
+            <br />
+
+            <button class="clickButton" id="AddCourse">Add New Course</button>
+        </div>
+    </div>
+</body>
+</html>

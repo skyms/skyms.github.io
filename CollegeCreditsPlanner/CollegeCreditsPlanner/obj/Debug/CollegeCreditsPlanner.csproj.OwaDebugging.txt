@@ -1,0 +1,7 @@
+False
+8cf3f0a1-de92-4ec6-acf2-979b31adc1cb4dfba850-0b8e-4d74-ab03-d6c95029a8d1
+{111927bd-d0c3-4159-8d3b-eb3e120bd215}{c59e60ad-0222-4dc2-9a16-556161e8a51b}
+{2b13ad03-95c4-4f1b-bb68-bed3ca849cfd}
+1.0.0.0
+CollegeCreditsPlanner
+_layouts/15/

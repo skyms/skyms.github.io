@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\CollegeCreditsPlannerManifest.xml
+c:\users\umas\documents\visual studio 2013\Projects\CollegeCreditsPlanner\CollegeCreditsPlanner\bin\Debug\CollegeCreditsPlanner.debugapp

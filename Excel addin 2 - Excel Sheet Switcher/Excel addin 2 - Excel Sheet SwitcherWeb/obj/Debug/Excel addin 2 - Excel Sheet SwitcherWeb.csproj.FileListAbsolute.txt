@@ -1,0 +1,6 @@
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\bin\Excel addin 2 - Excel Sheet SwitcherWeb.dll.config
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\bin\Excel addin 2 - Excel Sheet SwitcherWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\bin\Excel addin 2 - Excel Sheet SwitcherWeb.pdb
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\obj\Debug\Excel addin 2 - Excel Sheet SwitcherWeb.csprojResolveAssemblyReference.cache
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\obj\Debug\Excel addin 2 - Excel Sheet SwitcherWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\Excel addin 2 - Excel Sheet Switcher\Excel addin 2 - Excel Sheet SwitcherWeb\obj\Debug\Excel addin 2 - Excel Sheet SwitcherWeb.pdb

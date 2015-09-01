@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SharePointSiteUrl>http://minint-t7bvhq3/</SharePointSiteUrl>
+    <GeneratedFeatureId>372b55de-8501-436e-9519-b745e45a887a</GeneratedFeatureId>
+    <GeneratedPackageId>60a45734-c292-4490-88e6-18dd8bfc5c5e</GeneratedPackageId>
+    <GeneratedModuleId>{a2d66806-402a-4c46-81da-7b4b5e654fa0}</GeneratedModuleId>
+    <GeneratedListId>{3c3f40b1-70ef-4e19-99ed-7cf95cc5f52e}</GeneratedListId>
+    <GeneratedProductId>{da9e0ed7-ce07-46cb-a845-54cf60771e61}</GeneratedProductId>
+    <GeneratedAppVersion>1.0.0.0</GeneratedAppVersion>
+    <GeneratedClientSecret>+HVwgV0fBifkyP74QTfZA3GgYPrgEFpV22moZrg6thk=</GeneratedClientSecret>
+  </PropertyGroup>
+</Project>

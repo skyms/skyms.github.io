@@ -1,0 +1,6 @@
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\bin\CollegeBudgetWeb.dll.config
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\bin\CollegeBudgetWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\bin\CollegeBudgetWeb.pdb
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\obj\Debug\CollegeBudgetWeb.csprojResolveAssemblyReference.cache
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\obj\Debug\CollegeBudgetWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudgetWeb\obj\Debug\CollegeBudgetWeb.pdb
