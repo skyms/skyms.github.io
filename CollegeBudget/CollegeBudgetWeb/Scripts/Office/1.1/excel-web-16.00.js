@@ -7576,7 +7576,7 @@ OSF.InitializationHelper.prototype.prepareRightBeforeWebExtensionInitialize = fu
     Microsoft.Office.WebExtension.initialize(this.getInitializationReason(appContext));
 };
 OSF.InitializationHelper.prototype.prepareApiSurface = function OSF_InitializationHelper$prepareApiSurfaceAndInitialize(appContext) {
-    OSF.WebApp._UpdateLinksForHostAndXdmInfo();
+    
     var license = new OSF.DDA.License(appContext.get_eToken());
     OSF._OfficeAppFactory.setContext(new OSF.DDA.Context(appContext, appContext.doc, license));
     var getDelegateMethods = OSF.DDA.WAC.getDelegateMethods;
