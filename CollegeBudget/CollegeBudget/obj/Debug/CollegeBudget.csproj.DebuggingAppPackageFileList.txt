@@ -1,2 +1,0 @@
-bin\Debug\OfficeAppManifests\CollegeBudgetManifest.xml
-c:\users\umas\documents\visual studio 2013\Projects\CollegeBudget\CollegeBudget\bin\Debug\CollegeBudget.debugapp
