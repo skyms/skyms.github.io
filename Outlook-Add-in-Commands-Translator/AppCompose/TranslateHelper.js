@@ -20,7 +20,7 @@ function generateRequestUrl(text) {
 
   // API Key for the yandex service
   // Get one at https://translate.yandex.com/developers
-  var apiKey = "YOUR API KEY HERE";
+  var apiKey = "trnsl.1.1.20151108T011608Z.06e3bc3ef3c63a51.4ab13bf03b132b199c27184243e44e75952e72ea";
   
   return "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + apiKey + "&lang=en-ru" + encodedText;
 }
