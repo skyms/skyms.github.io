@@ -1,289 +1,287 @@
-﻿/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. 
-	See full license at the bottom of this file. */
+﻿/// <reference path="../App.js" />
 
 (function () {
-	"use strict";
+    "use strict";
 
-	// The initialize function must be run each time a new page is loaded
-	Office.initialize = function (reason) {
-		$(document).ready(function () {
-		    app.initialize();
+    // The initialize function must be run each time a new page is loaded
+    Office.initialize = function (reason) {
+        $(document).ready(function () {
+            app.initialize();
 
-			$("#tabs").tabs();
-			$(".click-button").button();
-			$('#add-expense').click(addExpense);
-			$('#add-income').click(addIncome);
+            // JQuery UI tabs
+            $("#tabs").tabs();
 
-		    // If not using Excel 2016, return
-			if (!Office.context.requirements.isSetSupported('ExcelApi', '1.1')) {
-			    app.showNotification("Need Office 2016 or greater", "Sorry, this add-in only works with newer versions of Excel.");
-			    return;
-			}
-
-			createBudgetAnalyzer();
-		});
-	};
-
-	function createBudgetAnalyzer() {
-
-		// Run a batch operation against the Excel object model
-		Excel.run(function (ctx) {
-
-			// Create a proxy object for the active worksheet
-			var dashboardSheet = ctx.workbook.worksheets.getActiveWorksheet();
-
-			// Queue a command to clear the contents before inserting data
-			dashboardSheet.getUsedRange().clear();
-
-			// Queue a command to rename the sheet
-			dashboardSheet.name = "Dashboard";
-
-			// Queue commands to set the title and format it
-			var title = "College Budget Tracker";
-			var range = dashboardSheet.getRange("A1");
-			range.values = title;
-			range.format.font.name = "Rockwell";
-			range.format.font.size = 22.5;
+            // JQuery UI slider for the target range setting
+            $("#slider-normal-range").slider({
+                range: true,
+                min: 0,
+                max: 400,
+                values: [60, 149],
+                slide: function (event, ui) {
+                    $("#normal-range-start").val(ui.values[0]);
+                    $("#normal-range-end").val(ui.values[1]);
+                    $("#normal-range").val(ui.values[0] + " - " + ui.values[1]);
+                },
+                change: function (event, ui) {
+                    updateExcelRange(ui.values[0], ui.values[1]);
+            }
+            });
+            $("#normal-range-start").val($("#slider-normal-range").slider("values", 0));
+            $("#normal-range-end").val($("#slider-normal-range").slider("values", 1));
+            $("#normal-range").val($("#slider-normal-range").slider("values", 0) + " - " + $("#slider-normal-range").slider("values", 1));
 
 
-			// Queue commands to add the Expenses table at the bottom of the sheet with sample data
-			var expenseTable = ctx.workbook.tables.add('Dashboard!A117:C117', true);
-			expenseTable.name = "expenseTable";
+            $("input[name='timeslice']").change(function () {
+                // Get the name of the time slice the user chose in the task pane
+                var selectedTimeSlice = $('input:radio:checked').map(function () {
+                    return this.value;
+                }).get();
+                populateBloodSugarLog(selectedTimeSlice);
+            });
 
-			expenseTable.getHeaderRowRange().values = [["Description", "Cost", "Category"]];
-			var tableRows = expenseTable.rows;
+            // Attach click event handler for the button
+            $('#sync-data').click(syncAndTrackYourResults);
+        });
 
-			tableRows.add(null, [["Rent", "$600", "Housing"]]);
-			tableRows.add(null, [["Movie Club", "$75", "Entertainment"]]);
-			tableRows.add(null, [["Food", "$450", "Food"]]);
-			tableRows.add(null, [["Car", "$150", "Transportation"]]);
-			tableRows.add(null, [["Tuition", "$800", "School costs"]]);
-			tableRows.add(null, [["Books", "$150", "School costs"]]);
-			tableRows.add(null, [["Gift", "$100", "Other"]]);
-			tableRows.add(null, [["Loan", "$250", "Loans/Payments"]]);
-
-			// Queue commands to set the title for the Expenses table and format it
-			var expenseTableTitle = "Monthly Expenses";
-			var range = dashboardSheet.getRange("A116");
-			range.values = expenseTableTitle;
-			range.format.font.name = "Rockwell";
-			range.format.font.size = 18;
-
-			// Queue commands to add the Income table at the bottom of the sheet with sample data
-			var incomeTable = ctx.workbook.tables.add('Dashboard!F117:H117', true);
-			incomeTable.name = "incomeTable";
-
-			incomeTable.getHeaderRowRange().values = [["Description", "Amount", "Category"]];
-			var tableRows = incomeTable.rows;
-
-			tableRows.add(null, [["Wages", "$2500", "Wages"]]);
-			tableRows.add(null, [["Parents", "$700", "Assistance from parents"]]);
-			tableRows.add(null, [["Gift", "$100", "Other"]]);
-			tableRows.add(null, [["Bank interest", "$250", "From savings"]]);
-			tableRows.add(null, [["Scholarship", "$500", "Financial aid"]]);
-
-			// Queue commands to set the title for the Expenses table and format it
-			var incomeTableTitle = "Monthly Income";
-			var range = dashboardSheet.getRange("F116");
-			range.values = incomeTableTitle;
-			range.format.font.name = "Rockwell";
-			range.format.font.size = 18;
+    };
 
 
-			// Queue commands to create the summary section at the top right
-			var summaryValues = [["Percentage of income spent", "=D4/D3"],
-								  ["Income", '=SUM(G117:G217)'],
-								  ["Expenses", '=SUM(B117:B217)'],
-								  ["Balance", "=D3-D4"]];
+    function updateExcelRange(rangeStart, rangeEnd) {
+        // Run a batch operation against the Excel object model
+        Excel.run(function (ctx) {
 
-			// Set the number format before setting the values
-			dashboardSheet.getRange("D2:D2").numberFormat = "0.00%";
-			dashboardSheet.getRange("D3:D5").numberFormat = "$#";
-			dashboardSheet.getRange("C2:D5").values = summaryValues;
+            // Create a proxy object for the active worksheet
+            var summarySheet = ctx.workbook.worksheets.getItem("Summary");
 
-			dashboardSheet.getRange("C2:D2").format.font.size = 18;
-			dashboardSheet.getRange("C2:D2").format.font.color = "red";
-			dashboardSheet.getRange("C2:D5").format.font.name = "Rockwell";
-			dashboardSheet.getRange("C3:D5").format.font.size = 10;
-			dashboardSheet.getRange("C2:D5").format.borders.getItem("InsideHorizontal").style = "Continuous";
-			dashboardSheet.getRange("C2:D5").format.borders.getItem('EdgeBottom').style = 'Continuous';
-			dashboardSheet.getRange("C2:D5").format.borders.getItem('EdgeTop').style = 'Continuous';
-			dashboardSheet.getRange("C5:D5").format.font.size = 13;
-			dashboardSheet.getRange("C5:D5").format.font.name = "Rockwell";
+            // Queue commands to update the cell with the most current reading:
+            // Get range from a named range
+            var range = summarySheet.getRange("BelowRange");
+            var formulaStartStr = '">' + 0 +'"';
+            var formulaEndStr = '"<' + rangeStart + '"';
+            var formulaStr = '=COUNTIFS(DataTable[BLOOD SUGAR (mg/dL)],'+formulaStartStr+', DataTable[BLOOD SUGAR (mg/dL)], '+formulaEndStr+')';
+            // Set to a formula representing the topmost row of the blood sugar
+            range.formulas = [[formulaStr]];
 
+            var range = summarySheet.getRange("NormalRange");
+            var formulaStartStr = '">' + rangeStart + '"';
+            var formulaEndStr = '"<' + rangeEnd + '"';
+            var formulaStr = '=COUNTIFS(DataTable[BLOOD SUGAR (mg/dL)],' + formulaStartStr + ', DataTable[BLOOD SUGAR (mg/dL)], ' + formulaEndStr + ')';
+            // Set to a formula representing the topmost row of the blood sugar
+            range.formulas = [[formulaStr]];
 
-			// Queue commands to create the Money In section
-			var moneyInValues = [["Money coming in", ""],
-								 ["Category", "Amount"],
-								 ["Wages", '=IFERROR(SUMIFS(G117:G217,H117:H217,C10),"")'],
-								 ["Financial aid", '=IFERROR(SUMIFS(G117:G217,H117:H217,C11),"")'],
-								 ["From savings", '=IFERROR(SUMIFS(G117:G217,H117:H217,C12),"")'],
-								 ["Assistance from parents", '=IFERROR(SUMIFS(G117:G217,H117:H217,C13),"")'],
-								 ["Other", '=IFERROR(SUMIFS(G117:G217,H117:H217,C14),"")'],
-								 ["Total", "=sum(D10:D14)"]];
+            var range = summarySheet.getRange("AboveRange");
+            var formulaStartStr = '">' + rangeEnd + '"';
+            var formulaEndStr = '"<' + 1000 + '"';
+            var formulaStr = '=COUNTIFS(DataTable[BLOOD SUGAR (mg/dL)],' + formulaStartStr + ', DataTable[BLOOD SUGAR (mg/dL)], ' + formulaEndStr + ')';
+            // Set to a formula representing the topmost row of the blood sugar
+            range.formulas = [[formulaStr]];
 
-			// Set the number format before setting the values
-			dashboardSheet.getRange("D10:D15").numberFormat = "$#";
-			dashboardSheet.getRange("C8:D15").values = moneyInValues;
-			dashboardSheet.getRange("C8:D8").format.font.size = 18;
-			dashboardSheet.getRange("C8:D8").format.font.color = "red";
-			dashboardSheet.getRange("C8:D15").format.font.name = "Rockwell";
-			dashboardSheet.getRange("C9:D9").format.font.size = 13;
-			dashboardSheet.getRange("C10:D14").format.font.size = 10;
-			dashboardSheet.getRange("C8:D15").format.borders.getItem("InsideHorizontal").style = "Continuous";
-			dashboardSheet.getRange("C8:D15").format.borders.getItem('EdgeBottom').style = 'Continuous';
-			dashboardSheet.getRange("C8:D15").format.borders.getItem('EdgeTop').style = 'Continuous';
-			dashboardSheet.getRange("C15:D15").format.font.size = 13;
-			dashboardSheet.getRange("C15:D15").format.font.name = "Rockwell";
+            // Execute all of the above queued up commands and return a promise
+            return ctx.sync();
+        })
+         .catch(function (error) {
+             // Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
+             app.showNotification("Error: " + error);
+             console.log("Error: " + error);
+             if (error instanceof OfficeExtension.Error) {
+                 console.log("Debug info: " + JSON.stringify(error.debugInfo));
+             }
+         });
+    }
+    // Click event handler for the button
+    function syncAndTrackYourResults() {
 
-			// Queue commands to create the Money Out section
-			var moneyOutValues = [["Money going out", ""],
-								  ["Category", "Cost"],
-								  ["School costs", '=IFERROR(SUMIFS(B117:B217,C117:C217,C20),"")'],
-								  ["Entertainment", '=IFERROR(SUMIFS(B117:B217,C117:C217,C21),"")'],
-								  ["Food", '=IFERROR(SUMIFS(B117:B217,C117:C217,C22),"")'],
-								["Housing", '=IFERROR(SUMIFS(B117:B217,C117:C217,C23),"")'],
-								  ["Transportation", '=IFERROR(SUMIFS(B117:B217,C117:C217,C24),"")'],
-								  ["Loans/Payments", '=IFERROR(SUMIFS(B117:B217,C117:C217,C25),"")'],
-								  ["Other", '=IFERROR(SUMIFS(B117:B217,C117:C217,C26),"")'],
-								  ["Total", "=sum(D20:D26)"]];
-			
-			// Set the number format before setting the values
-			dashboardSheet.getRange("D19:D27").numberFormat = "$#";
-			dashboardSheet.getRange("C18:D27").values = moneyOutValues;
-			dashboardSheet.getRange("C18:D18").format.font.size = 18;
-			dashboardSheet.getRange("C18:D18").format.font.color = "red";
-			dashboardSheet.getRange("C18:D27").format.font.name = "Rockwell";
-			dashboardSheet.getRange("C19:D19").format.font.size = 13;;
-			dashboardSheet.getRange("C20:D26").format.font.size = 10;
-			dashboardSheet.getRange("C18:D27").format.borders.getItem("InsideHorizontal").style = "Continuous";
-			dashboardSheet.getRange("C18:D27").format.borders.getItem('EdgeBottom').style = 'Continuous';
-			dashboardSheet.getRange("C18:D27").format.borders.getItem('EdgeTop').style = 'Continuous';
-			dashboardSheet.getRange("C27:D27").format.font.size = 13;
-			dashboardSheet.getRange("C27:D27").format.font.name = "Rockwell";
+        // Disable the button to disallow repeated clicks until this request is fulfilled
+        $('#sync-data').prop('disabled', true);
 
-			// Queue commands to create the income chart
-			var incomeChartDataRange = dashboardSheet.getRange("C10:D14");
-			var chart = dashboardSheet.charts.add("doughnut", incomeChartDataRange, "auto");
-			chart.setPosition("A3", "A13");
-			chart.title.text = "Income";
-			chart.title.format.font.size = 15;
-			chart.title.format.font.color = "red";
-			chart.legend.position = "left";
-			chart.legend.format.font.name = "Trebuchet MS (Body)";
-			chart.legend.format.font.size = 8;
-			chart.dataLabels.showPercentage = true;
-			chart.dataLabels.format.font.size = 8;
-			chart.dataLabels.format.font.color = "white";
-			var points = chart.series.getItemAt(0).points;
-			points.getItemAt(0).format.fill.setSolidColor("#ff3300");
-			points.getItemAt(1).format.fill.setSolidColor("#00cccc");
-			points.getItemAt(2).format.fill.setSolidColor("#bf6514");
-			points.getItemAt(3).format.fill.setSolidColor("#2be6c2");
-			points.getItemAt(4).format.fill.setSolidColor("#993cf3");
+        // Get the blood sugar data
+        // Request Url
+        var numberOfEntriesToFetch = 60 / 5 * 24; /* 60 minutes per hour, data comes in every ~5 minutes, muliplying by 24 hours */
+        var requestUrl = "https://hanselsugars.azurewebsites.net/api/v1/Entries?count=" + numberOfEntriesToFetch;
 
+        // Make the request
+        $.ajax({
+            url: requestUrl,
+            type: "GET",
+            dataType: "text"
+        })
+        .done(function (data) {
+            // Convert the tab-separated plain text results into lines of data and populate the table
+            processData(data);
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            app.showNotification("Error calling the Blood Sugar API", "Error message: " + JSON.stringify(jqXHR) + ".");
+            console.log(JSON.stringify(jqXHR));
+        });
+    }
 
-			// Queue commands to create the expenses chart
-			var expenseChartDataRange = dashboardSheet.getRange("C20:D25");
-			var expenseChart = dashboardSheet.charts.add("doughnut", expenseChartDataRange, "auto");
-			expenseChart.setPosition("A16", "A26");
-			expenseChart.title.text = "Expenses";
-			expenseChart.title.format.font.size = 15;
-			expenseChart.title.format.font.color = "red";
-			expenseChart.legend.position = "left";
-			expenseChart.legend.format.font.name = "Trebuchet MS (Body)";
-			expenseChart.legend.format.font.size = 8;
-			expenseChart.dataLabels.showPercentage = true;
-			expenseChart.dataLabels.format.font.size = 8;
-			expenseChart.dataLabels.format.font.color = "white";
-			var points = expenseChart.series.getItemAt(0).points;
-			points.getItemAt(0).format.fill.setSolidColor("#ff3300");
-			points.getItemAt(1).format.fill.setSolidColor("#00cccc");
-			points.getItemAt(2).format.fill.setSolidColor("#bf6514");
-			points.getItemAt(3).format.fill.setSolidColor("#2be6c2");
-			points.getItemAt(4).format.fill.setSolidColor("#993cf3");
+    // Convert the tab-separated plain text results into lines of data
+    function processData(allText) {
+        var allTextLines = allText.split(/\r\n|\n/);
+        var lines = [];
 
-			// Run the queued-up commands, and return a promise to indicate task completion
-			return ctx.sync();
-		})
-		.catch(function (error) {
-			// Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
-			app.showNotification("Error: " + error);
-			console.log("Error: " + error);
-			if (error instanceof OfficeExtension.Error) {
-				console.log("Debug info: " + JSON.stringify(error.debugInfo));
-			}
-		});
-	}
+        $.each(allTextLines, function (index, item) {
+            var entries = item.split(/\t/);
+            lines.push({
+                dateTime: moment(entries[0]), /* dateTime */
+                bloodSugar: entries[2] /* Blood sugar value */
+            });
 
-	function addExpense() {
+        });
+        populateTable(lines);
+    }
 
-		// Run a batch operation against the Excel object model
-		Excel.run(function (ctx) {
+    function populateTable(lines) {
 
-			// Create a proxy object for the expense table rows
-			var tableRows = ctx.workbook.tables.getItem('expenseTable').rows;
-			tableRows.add(null, [[$("#expense-description").val(), $("#expense-cost").val(), $("#expense-category").val()]]);
+        // Run a batch operation against the Excel object model
+        Excel.run(function (ctx) {
 
-			// Run the queued-up commands, and return a promise to indicate task completion
-			return ctx.sync();
-		})
-		.catch(function (error) {
-			// Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
-			app.showNotification("Error: " + error);
-			console.log("Error: " + error);
-			if (error instanceof OfficeExtension.Error) {
-				console.log("Debug info: " + JSON.stringify(error.debugInfo));
-			}
-		});
-	}
+            // Create a proxy object for the active worksheet
+            var dashboardSheet = ctx.workbook.worksheets.getItem("Dashboard");
+            var summarySheet = ctx.workbook.worksheets.getItem("Summary");
+
+            // Queue commands to get the BloodSugarLog table
+            var table = ctx.workbook.tables.getItem("DataTable");
+
+            // Queue a command to clear the existing rows 
+            table.getDataBodyRange().getEntireRow().delete();
+
+            // Store today's date which we'll use to compare
+            var today = moment(Date()).format('MMM Do YY');
+            var todayTime = moment(Date()).format('HH:mm');
+            var yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            yesterday = moment(yesterday).format('MMM Do YY');
+
+            var timeSliceRightNow = getTimeSliceForTime(Date());
 
 
-	function addIncome() {
-		// Run a batch operation against the Excel object model
-		Excel.run(function (ctx) {
+            // Queue commands to add table rows for each entry that has tody's date
+            for (var i = 0; i < lines.length; i = i + 3) {
+                var date = lines[i].dateTime;
+                var dateString = date.format('MMM Do YY');
+                var timeString = date.format('HH:mm');
+                var timeSliceOfThisEntry = getTimeSliceForTime(lines[i].dateTime);
 
-			// Create a proxy object for the expense table rows
-			var tableRows = ctx.workbook.tables.getItem('incomeTable').rows;
+                if ((dateString == today) |  ((dateString == yesterday) & (timeSliceOfThisEntry != timeSliceRightNow) & (timeString > todayTime))) {
+                        var time = lines[i].dateTime.format('LT');
+                        var rowIndex = null; /* Adding to "null" index adds to the end of the table */
+                        var data = [[
+                            null /* First column is empty in the table */,
+                            dateString,
+                            null /* Third column is empty in the table */,
+                            time,
+                            null,
+                            lines[i].bloodSugar /* Blood sugar value */,
+                            '=AVERAGE(INDEX([BLOOD SUGAR (mg/dL)],1,1):[@[BLOOD SUGAR (mg/dL)]])' /* Running average */,
+                            timeSliceOfThisEntry
+                        ]];
+                        table.rows.add(rowIndex, data);
+                    }
+                }
+            // Queue commands to update the cell with the most current reading:
+            // Get range from a named range
+            var range = dashboardSheet.getRange("CurrentReading");
+            // Set to a formula representing the topmost row of the blood sugar log
+            range.formulas = [["=OFFSET(DataTable[BLOOD SUGAR (mg/dL)],0,0,1,1)"]];
 
-			// Run the queued-up commands, and return a promise to indicate task completion
-			tableRows.add(null, [[$("#income-description").val(), $("#income-amount").val(), $("#income-category").val()]]);
 
-			// Run the queued-up commands, and return a promise to indicate task completion
-			return ctx.sync();
-		})
-		.catch(function (error) {
-			// Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
-			app.showNotification("Error: " + error);
-			console.log("Error: " + error);
-			if (error instanceof OfficeExtension.Error) {
-				console.log("Debug info: " + JSON.stringify(error.debugInfo));
-			}
-		});
-	}
+            // Queue commands to update the cell with today's date
+            var today = Date();
+            var todayDate = moment(today).format('MMM Do YY');
+            var range = dashboardSheet.getRange("Date");
+            range.values = [[todayDate]];
+
+            // Activate the sheet just in case it is not
+            dashboardSheet.activate();
+
+            //Enable the button 
+            $('#sync-data').prop('disabled', false);
+
+            // Execute all of the above queued up commands and return a promise
+            return ctx.sync();
+        })
+          .then(function () {
+              // Get the name of the time slice the user chose in the task pane
+              var selectedTimeSlice = $('input:radio:checked').map(function () {
+                  return this.value;
+              }).get();
+                populateBloodSugarLog(selectedTimeSlice);
+            })
+         .catch(function (error) {
+             // Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
+             app.showNotification("Error: " + error);
+             console.log("Error: " + error);
+             if (error instanceof OfficeExtension.Error) {
+                 console.log("Debug info: " + JSON.stringify(error.debugInfo));
+             }
+         });
+    }
+
+    function getTimeSliceForTime(dateTime) {
+        var timeSlice;
+        var hour = moment(dateTime).get('hour');
+        if ((hour > 4) & (hour <=11)) {
+            timeSlice = "Morning";
+        }
+        if ((hour > 11) & (hour <= 16)) {
+            timeSlice = "Afternoon";
+        }
+        if ((hour > 16) & (hour <= 21)) {
+            timeSlice = "Evening";
+        }
+        if ((hour > 21) | (hour <= 4)) {
+            timeSlice = "Night";
+        }
+        return timeSlice;
+    }
+
+    function populateBloodSugarLog(selectedTimeSlice) {
+        // Run a batch operation against the Excel object model
+        Excel.run(function (ctx) {
+
+            // Create a proxy object for the active worksheet
+            var dashboardSheet = ctx.workbook.worksheets.getItem("Dashboard");
+
+            // Queue commands to get the BloodSugarLog table
+            var table = ctx.workbook.tables.getItem("BloodSugarLog");
+
+            // Queue a command to clear the existing rows 
+            table.getDataBodyRange().getEntireRow().delete();
+
+            // Queue commands to get the Data Table
+            var dataTable = ctx.workbook.tables.getItem("DataTable");
+            var dataRange = dataTable.getDataBodyRange();
+            dataRange.load("values");
+
+            return ctx.sync()
+            .then(function () {
+                for (var row = 0; row < dataRange.values.length; row++) {
+                    if (dataRange.values[row][7] == selectedTimeSlice) {
+                        var rowIndex = null; /* Adding to "null" index adds to the end of the table */
+                        var data = [[
+                            null /* First column is empty in the table */,
+                            dataRange.values[row][1],
+                            null /* Third column is empty in the table */,
+                            dataRange.values[row][3],
+                            null,
+                            dataRange.values[row][5] /* Blood sugar value */,
+                            '=AVERAGE(INDEX([BLOOD SUGAR (mg/dL)],1,1):[@[BLOOD SUGAR (mg/dL)]])' /* Running average */ /* Running average */,
+                            dataRange.values[row][7] /* Time slice */
+                        ]];
+                        table.rows.add(rowIndex, data);
+                    }
+                }
+            })
+            .then(ctx.sync)
+            .catch(function (error) {
+            	// Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
+            	app.showNotification("Error: " + error);
+            	console.log("Error: " + error);
+            	if (error instanceof OfficeExtension.Error) {
+            		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+            	}
+            });
+        })
+    }
 })();
-
-/* 
-Excel-Add-in-JS-CollegeBudgetTracker, https://github.com/OfficeDev/Excel-Add-in-JS-CollegeBudgetTracker
-
-Copyright (c) Microsoft Corporation
-
-All rights reserved.
-
-MIT License:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-associated documentation files (the "Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
-following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial
-portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
-LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
-SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
