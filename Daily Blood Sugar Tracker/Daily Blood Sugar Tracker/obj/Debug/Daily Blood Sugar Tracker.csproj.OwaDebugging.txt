@@ -1,0 +1,7 @@
+False
+813a8f5b-4a34-4207-a6cc-c12f8b1244a8d62dd9fb-605a-4b02-b235-07b2526f9dc1
+{4cacda5f-4f93-4389-8a5b-bc43899dd3c2}{f9f7fc95-df53-48d5-bb49-91eb5d779d50}
+{d97653a8-cccf-4508-8371-46e172748ae4}
+1.0.0.0
+Daily Blood Sugar Tracker
+_layouts/15/
