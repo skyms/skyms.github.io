@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\Daily Blood Sugar TrackerManifest.xml
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar Tracker\bin\Debug\Daily Blood Sugar Tracker.debugapp

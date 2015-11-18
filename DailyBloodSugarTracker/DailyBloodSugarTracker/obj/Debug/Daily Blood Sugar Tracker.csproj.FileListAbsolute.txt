@@ -1,0 +1,2 @@
+C:\Users\umas\Documents\Visual Studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar Tracker\obj\Debug\Daily Blood Sugar Tracker.csprojResolveAssemblyReference.cache
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar Tracker\obj\Debug\Daily Blood Sugar Tracker.csprojResolveAssemblyReference.cache

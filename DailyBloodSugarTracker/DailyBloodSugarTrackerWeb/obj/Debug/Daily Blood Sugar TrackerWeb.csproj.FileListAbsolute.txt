@@ -1,0 +1,12 @@
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.dll.config
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.pdb
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.csprojResolveAssemblyReference.cache
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.dll
+c:\users\umas\documents\visual studio 2013\Projects\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.pdb
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.dll.config
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.dll
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\bin\Daily Blood Sugar TrackerWeb.pdb
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.csprojResolveAssemblyReference.cache
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.dll
+C:\Users\umas\Desktop\Daily Blood Sugar Tracker\Daily Blood Sugar TrackerWeb\obj\Debug\Daily Blood Sugar TrackerWeb.pdb
