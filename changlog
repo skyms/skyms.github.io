@@ -14,20 +14,14 @@
 <div class="row" id="dateContent">
 <div class="col-md-9 col-xs-12" style="background-color: #fff; padding-top: 10px; padding-bottom: 10px;">
 <div>
-<h1>January 2016</h1>
-<h2>General</h2>
-<p><strong>Fixes</strong></p>
-<ul>
-<li>1/16 - Test content</li>
-</ul>
 <h1 id="december-2015">December 2015</h1>
 <h2 id="general" style="margin-bottom: 5px;"><span>General</span></h2>
 <div style="padding-left: 20px;">
 <p id="fixes-applies-to-all-entities-in-beta-and-v10"><strong>Fixes</strong></p>
 <ul class="contentlist">
-<li>12/17 - Fixed requests using <span class="impcontent">$filter</span> expressions that specified the same property more than once, which were failing with the following 500 error: &ldquo;An item with the same key has already been added&rdquo;.</li>
-<li>12/7 - Fixed case insensitivity for action parameter names and values.</li>
-<li>12/1 - Fixed request processing for payloads containing null values for some embedded complex properties, which were failing with a null reference exception. An example of a previously failing request is:</li>
+<li>- Fixed requests using <span class="impcontent">$filter</span> expressions that specified the same property more than once, which were failing with the following 500 error: &ldquo;An item with the same key has already been added&rdquo;.</li>
+<li>- Fixed case insensitivity for action parameter names and values.</li>
+<li>- Fixed request processing for payloads containing null values for some embedded complex properties, which were failing with a null reference exception. An example of a previously failing request is:</li>
 </ul>
 <pre><code>PATCH /me/events/eventId
 {
@@ -39,14 +33,14 @@
 </code></pre>
 <p id="additions-applies-to-all-entities-in-beta-and-v10"><strong>Additions</strong></p>
 <ul class="contentlist">
-<li>12/12 - Added support for complex type property sorting and filtering. Examples:</li>
+<li>- Added support for complex type property sorting and filtering. Examples:</li>
 </ul>
 <pre><code>https://graph.microsoft.com/v1.0/me/messages?$orderBy=From/EmailAddress/Address
 https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address eq 'jon@contoso.com'
 </code></pre>
 <ul class="contentlist">
-<li>12/1 - Added <span class="impcontent">authorization_uri</span> property in the www-authenticate header on a 401 response. This uri can be used to start the token acquisition flow.</li>
-<li>12/1 - Improved error messages across users and groups</li>
+<li>- Added <span class="impcontent">authorization_uri</span> property in the www-authenticate header on a 401 response. This uri can be used to start the token acquisition flow.</li>
+<li>- Improved error messages across users and groups</li>
 </ul>
 </div>
 <h2></h2>
@@ -54,7 +48,7 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <div style="padding-left: 20px;">
 <p id="fixes-applies-to-directoryobjects-entity-in-beta-and-v10"><strong>Fixes</strong></p>
 <ul class="contentlist">
-<li>12/18 - Fixed calling actions that are bound to directoryObjects, which were failing with the following error: &ldquo;The return type from the operation is not possible with the given entity set.&rdquo;. This applies to the following actions: <em>microsoft.graph.checkMemberObjects</em>, <em>microsoft.graph.getMemberObjects</em>, <em>microsoft.graph.checkMemberGroups</em>, <em>microsoft.graph.assignLicense</em>, <em>microsoft.graph.changePassword</em>.</li>
+<li>- Fixed calling actions that are bound to directoryObjects, which were failing with the following error: &ldquo;The return type from the operation is not possible with the given entity set.&rdquo;. This applies to the following actions: <em>microsoft.graph.checkMemberObjects</em>, <em>microsoft.graph.getMemberObjects</em>, <em>microsoft.graph.checkMemberGroups</em>, <em>microsoft.graph.assignLicense</em>, <em>microsoft.graph.changePassword</em>.</li>
 </ul>
 </div>
 <h2></h2>
@@ -62,13 +56,13 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <div style="padding-left: 20px;">
 <p id="fixes-applies-to-user-entity-in-beta-and-v10"><strong>Fixes</strong></p>
 <ul class="contentlist">
-<li>12/17 - Fixed being able to select certain user properties on other users, when referencing the user by user principal name (UPN). For example:</li>
+<li>- Fixed being able to select certain user properties on other users, when referencing the user by user principal name (UPN). For example:</li>
 </ul>
 <pre><code>https://graph.microsoft.com/v1.0/users/anotherUser@contoso.com?$select=aboutMe
 </code></pre>
 <ul class="contentlist">
-<li>12/17 - Fixed calling the <em>microsoft.graph.reminderView</em> user bound function, which was failing with the following error: &ldquo;Could not find a property named &lsquo;businessPhones&rsquo; on type &lsquo;Microsoft.OutlookServices.Reminder&rsquo;&ldquo;.</li>
-<li>12/12 - Fixed user creation and update (POST/PATCH /v1.0/users), which was failing with a 400 error.</li>
+<li>- Fixed calling the <em>microsoft.graph.reminderView</em> user bound function, which was failing with the following error: &ldquo;Could not find a property named &lsquo;businessPhones&rsquo; on type &lsquo;Microsoft.OutlookServices.Reminder&rsquo;&ldquo;.</li>
+<li class="released">Fixed user creation and update (POST/PATCH /v1.0/users), which was failing with a 400 error.</li>
 </ul>
 </div>
 <h2></h2>
@@ -76,7 +70,7 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <div style="padding-left: 20px;">
 <p id="fixes-applies-to-groups-entity-in-beta-and-v10"><strong>Fixes</strong></p>
 <ul class="contentlist">
-<li>12/1 - Fixed calling the following group actions: <em>microsoft.graph.addFavorite</em>, <em>microsoft.graph.removeFavorite</em> and <em>microsoft.graph.resetUnseenCount</em>.</li>
+<li>- Fixed calling the following group actions: <em>microsoft.graph.addFavorite</em>, <em>microsoft.graph.removeFavorite</em> and <em>microsoft.graph.resetUnseenCount</em>.</li>
 </ul>
 </div>
 <h2></h2>
@@ -84,7 +78,7 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <div class="release" style="padding-left: 20px;">
 <p id="additions-applies-to-contact-entity-in-v10"><strong>Additions</strong></p>
 <ul class="contentlist">
-<li>12/18 - Added <span class="impcontent">mobilePhone</span> property to personal contacts entity-set.</li>
+<li>- Added <span class="impcontent">mobilePhone</span> property to personal contacts entity-set.</li>
 </ul>
 </div>
 <h2></h2>
@@ -92,7 +86,7 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <div class="beta" style="padding-left: 20px;">
 <p id="additions-applies-to-messages-entity-in-beta"><strong>Additions</strong></p>
 <ul class="contentlist">
-<li>12/18 - Added <span class="impcontent">eventMessageRequest</span> subtype of <span class="impcontent">eventMessage</span> and <span class="impcontent">startDateTime</span>, <span class="impcontent">endDateTime</span>, <span class="impcontent">location</span>, <span class="impcontent">type</span>, <span class="impcontent">recurrence</span> and <span class="impcontent">isOutOfDate</span> properties to <span class="impcontent">eventMessage</span> type.</li>
+<li>- Added <span class="impcontent">eventMessageRequest</span> subtype of <span class="impcontent">eventMessage</span> and <span class="impcontent">startDateTime</span>, <span class="impcontent">endDateTime</span>, <span class="impcontent">location</span>, <span class="impcontent">type</span>, <span class="impcontent">recurrence</span> and <span class="impcontent">isOutOfDate</span> properties to <span class="impcontent">eventMessage</span> type.</li>
 </ul>
 </div>
 </div>
