@@ -2,18 +2,73 @@
 <div class="row">
 <div class="col-md-9 col-xs-12" style="padding: 0;">
 <ul class="nav nav-tabs" style="border-bottom-width: 5px; border-bottom-color: #0072c6; border-bottom-style: solid; margin: 0;">
-<li class="col-xs-6 col-sm-6 col-md-4" id="releaseTab" role="presentation" style="background-color: #0072c6; margin: 0;">
-<h1 style="line-height: 50px; font-size: 2em;"><a id="released" style="color: #fff; border-radius: 0; text-decoration: none; margin-left: 1%;" href="#"> Released version </a></h1>
+<li class="col-xs-6 col-sm-6 col-md-4" id="wordTab" role="presentation" style="background-color: #0072c6; margin: 0;">
+<h1 style="line-height: 50px; font-size: 2em;"><a id="word" style="color: #fff; border-radius: 0; text-decoration: none; margin-left: 1%;" href="#"> Word </a></h1>
 </li>
-<li class="col-xs-6 col-sm-6 col-md-4" id="betaTab" role="presentation" style="margin: 0; font-size: 2em;">
-<h1 style="line-height: 50px;"><a id="beta" style="color: #0072c6; border-radius: 0; text-decoration: none; margin-left: 1%;" href="#"> Beta version </a></h1>
+<li class="col-xs-6 col-sm-6 col-md-4" id="excelTab" role="presentation" style="margin: 0; font-size: 2em;">
+<h1 style="line-height: 50px;"><a id="excel" style="color: #0072c6; border-radius: 0; text-decoration: none; margin-left: 1%;" href="#"> Excel </a></h1>
 </li>
 </ul>
 </div>
 </div>
 <div class="row" id="dateContent">
 <div class="col-md-9 col-xs-12" style="background-color: #fff; padding-top: 10px; padding-bottom: 10px;">
-<div>
+<h1 id="february-2016">February 2016</h1>
+<h2></h2>
+<h2 id="Users" style="margin-bottom: 5px;"><span>Users</span></h2>
+<div style="padding-left: 20px;">
+<p id="changes-applies-to-users-entity-in-beta"><strong>Changes</strong></p>
+<ul class="contentlist">
+<li>- <em>displayName</em> is now returned for Microsoft accounts.</li>
+</ul>
+</div>
+<h2 id="DriveItem" style="margin-bottom: 5px;"><span>DriveItem</span></h2>
+<div style="padding-left: 20px;">
+<p id="additions-applies-to-driveItem-entity-in-beta"><strong>Additions</strong></p>
+<ul class="contentlist">
+<li>-New <em>remoteItem</em> property on driveItem for Microsoft accounts.</li>
+</ul>
+</div>
+<h2 id="General" style="margin-bottom: 5px;"><span>General</span></h2>
+<div style="padding-left: 20px;">
+<p class="excel" id="deletions-applies-to-general-entity-in-beta"><strong>Deletions</strong></p>
+<ul class="contentlist">
+<li class="excel">-Removed various unimplemented types from the beta schema to more closely match the 1.0 schema.</li>
+</ul>
+<p id="changes-applies-to-general-entity-in-beta"><strong>Changes</strong></p>
+<ul class="contentlist">
+<li>-<em>/me/drive</em> now works for both Microsoft accounts and Work and School accounts</li>
+<li>-Drive requests for accounts whose OneDrive storage was provisioned on demand work more reliably and work in more scenarios where tenant default SharePoint sites use non-standard names.</li>
+</ul>
+</div>
+<h2 class="excel" id="Subscriptions" style="margin-bottom: 5px;"><span>Subscriptions</span></h2>
+<div class="excel" style="padding-left: 20px;">
+<p id="additions-applies-to-subscriptions-entity-in-beta"><strong>Additions</strong></p>
+<ul class="contentlist">
+<li>- notificationUrl validation on subscription creation - see <a href="http://dev.office.com/blogs/Microsoft-Graph-WebHooks-Update-January-2016"> http://dev.office.com/blogs/Microsoft-Graph-WebHooks-Update-January-2016.</a></li>
+<li>- Subscription entities can now be deleted:</li>
+</ul>
+<pre class="excel"><code>DELETE https://graph.microsoft.com/beta/subscriptions/<subscriptionid>
+</subscriptionid></code></pre>
+</div>
+<h1 id="january-2016">January 2016</h1>
+<h2></h2>
+<h2 class="word" id="contact" style="margin-bottom: 5px;"><span>Contacts</span></h2>
+<div class="word" style="padding-left: 20px;">
+<p id="additions-applies-to-contact-entity-in-v10"><strong>Additions</strong></p>
+<ul class="contentlist">
+<li>- Added <span class="impcontent">mobilePhone</span> property to personal contacts entity-set.</li>
+</ul>
+</div>
+<h2></h2>
+<h2 id="directoryobjects" style="margin-bottom: 5px;"><span>directoryObjects</span></h2>
+<div style="padding-left: 20px;">
+<p id="fixes-applies-to-directoryobjects-entity-in-beta-and-v10"><strong>Fixes</strong></p>
+<ul class="contentlist">
+<li>- Fixed calling actions that are bound to directoryObjects, which were failing with the following error: &ldquo;The return type from the operation is not possible with the given entity set.&rdquo;. This applies to the following actions: <em>microsoft.graph.checkMemberObjects</em>, <em>microsoft.graph.getMemberObjects</em>, <em>microsoft.graph.checkMemberGroups</em>, <em>microsoft.graph.assignLicense</em>, <em>microsoft.graph.changePassword</em>.</li>
+</ul>
+</div>
+<h2></h2>
 <h1 id="december-2015">December 2015</h1>
 <h2 id="general" style="margin-bottom: 5px;"><span>General</span></h2>
 <div style="padding-left: 20px;">
@@ -35,20 +90,15 @@
 <ul class="contentlist">
 <li>- Added support for complex type property sorting and filtering. Examples:</li>
 </ul>
-<pre><code>https://graph.microsoft.com/v1.0/me/messages?$orderBy=From/EmailAddress/Address
+<pre class="word"><code>https://graph.microsoft.com/v1.0/me/messages?$orderBy=From/EmailAddress/Address
 https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address eq 'jon@contoso.com'
+</code></pre>
+<pre class="excel"><code>https://graph.microsoft.com/beta/me/messages?$orderBy=From/EmailAddress/Address
+https://graph.microsoft.com/beta/me/messages?$filter=From/EmailAddress/Address eq 'jon@contoso.com'
 </code></pre>
 <ul class="contentlist">
 <li>- Added <span class="impcontent">authorization_uri</span> property in the www-authenticate header on a 401 response. This uri can be used to start the token acquisition flow.</li>
 <li>- Improved error messages across users and groups</li>
-</ul>
-</div>
-<h2></h2>
-<h2 id="directoryobjects" style="margin-bottom: 5px;"><span>directoryObjects</span></h2>
-<div style="padding-left: 20px;">
-<p id="fixes-applies-to-directoryobjects-entity-in-beta-and-v10"><strong>Fixes</strong></p>
-<ul class="contentlist">
-<li>- Fixed calling actions that are bound to directoryObjects, which were failing with the following error: &ldquo;The return type from the operation is not possible with the given entity set.&rdquo;. This applies to the following actions: <em>microsoft.graph.checkMemberObjects</em>, <em>microsoft.graph.getMemberObjects</em>, <em>microsoft.graph.checkMemberGroups</em>, <em>microsoft.graph.assignLicense</em>, <em>microsoft.graph.changePassword</em>.</li>
 </ul>
 </div>
 <h2></h2>
@@ -58,11 +108,13 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 <ul class="contentlist">
 <li>- Fixed being able to select certain user properties on other users, when referencing the user by user principal name (UPN). For example:</li>
 </ul>
-<pre><code>https://graph.microsoft.com/v1.0/users/anotherUser@contoso.com?$select=aboutMe
+<pre class="word"><code>https://graph.microsoft.com/v1.0/users/anotherUser@contoso.com?$select=aboutMe
+</code></pre>
+<pre class="excel"><code>https://graph.microsoft.com/beta/users/anotherUser@contoso.com?$select=aboutMe
 </code></pre>
 <ul class="contentlist">
 <li>- Fixed calling the <em>microsoft.graph.reminderView</em> user bound function, which was failing with the following error: &ldquo;Could not find a property named &lsquo;businessPhones&rsquo; on type &lsquo;Microsoft.OutlookServices.Reminder&rsquo;&ldquo;.</li>
-<li class="released">Fixed user creation and update (POST/PATCH /v1.0/users), which was failing with a 400 error.</li>
+<li class="word">- Fixed user creation and update (POST/PATCH /v1.0/users), which was failing with a 400 error.</li>
 </ul>
 </div>
 <h2></h2>
@@ -74,16 +126,16 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 </ul>
 </div>
 <h2></h2>
-<h2 class="release" id="contact" style="margin-bottom: 5px;"><span>Contacts</span></h2>
-<div class="release" style="padding-left: 20px;">
-<p id="additions-applies-to-contact-entity-in-v10"><strong>Additions</strong></p>
+<h2 class="excel" id="contact" style="margin-bottom: 5px;"><span>Contacts</span></h2>
+<div class="excel" style="padding-left: 20px;">
+<p id="additions-applies-to-contact-entity-in-beta"><strong>Additions</strong></p>
 <ul class="contentlist">
 <li>- Added <span class="impcontent">mobilePhone</span> property to personal contacts entity-set.</li>
 </ul>
 </div>
 <h2></h2>
-<h2 class="beta" id="messages" style="margin-bottom: 5px;"><span>Messages</span></h2>
-<div class="beta" style="padding-left: 20px;">
+<h2 class="excel" id="messages" style="margin-bottom: 5px;"><span>Messages</span></h2>
+<div class="excel" style="padding-left: 20px;">
 <p id="additions-applies-to-messages-entity-in-beta"><strong>Additions</strong></p>
 <ul class="contentlist">
 <li>- Added <span class="impcontent">eventMessageRequest</span> subtype of <span class="impcontent">eventMessage</span> and <span class="impcontent">startDateTime</span>, <span class="impcontent">endDateTime</span>, <span class="impcontent">location</span>, <span class="impcontent">type</span>, <span class="impcontent">recurrence</span> and <span class="impcontent">isOutOfDate</span> properties to <span class="impcontent">eventMessage</span> type.</li>
@@ -92,53 +144,51 @@ https://graph.microsoft.com/v1.0/me/messages?$filter=From/EmailAddress/Address e
 </div>
 </div>
 </div>
-</div>
-<p>
 <script>// <![CDATA[
 $('#banner-image').css('height', '150px');
-    $('.no-description-banner-contents').css('top', '30px');
-    $('.full-width-container').css('background-color', '#E4E4E4');
-    $(".no-description-banner-contents").css("background-color", "transparent");
-    $(".no-description-banner-title").css("font-family", "'Segoe UI',Helvetica,Arial,sans-serif");
-    $('.impcontent').css('font-family', 'courier');
-    $('.impcontent').css('font-size', '18px');
-    $('.impcontent').css('color', '#008272');
-    $('pre').css('border-radius', '0');
-    $('.contentlist').css('margin', '0');
-    $('.changelog li').attr('style', 'list-style: none !important; margin-bottom: 10px;');
-    
-    $(document).ready(function() {
-      hideBeta();
-    });
-          
-    var mq = window.matchMedia( "(max-width: 900px)" );
-      if (mq.matches){
-      $(".no-description-banner-title").css("top", "14px");
-      $(".no-description-banner-title").css("color", "#fff");
-      }else{
-      $(".no-description-banner-title").css("top", "0");
-      $(".no-description-banner-title").css("color", "#fff");
-    }
-            
-            
-    document.getElementById("released").addEventListener("click", hideBeta);
-    document.getElementById("beta").addEventListener("click", hideRelease);
-    function hideBeta(){
-      $('.beta').hide();
-      $('.release').show();
-      $('#releaseTab').css('background-color', '#0072c6');
-      $('#releaseTab a').css('color', '#fff');
-      $('#betaTab').css('background-color', '#E4E4E4');
-      $('#betaTab a').css('color', '#0072c6'); 
-    }
-            
-    function hideRelease(){
-      $('.release').hide();
-      $('.beta').show();
-      $('#releaseTab').css('background-color', '#E4E4E4');
-      $('#releaseTab a').css('color', '#0072c6');
-      $('#betaTab').css('background-color', '#0072c6');
-      $('#betaTab a').css('color', '#fff');
-    }
+$('.no-description-banner-contents').css('top', '30px');
+$('.full-width-container').css('background-color', '#E4E4E4');
+$(".no-description-banner-contents").css("background-color", "transparent");
+$(".no-description-banner-title").css("font-family", "'Segoe UI',Helvetica,Arial,sans-serif");
+$('.impcontent').css('font-family', 'courier');
+$('.impcontent').css('font-size', '18px');
+$('.impcontent').css('color', '#008272');
+$('pre').css('border-radius', '0');
+$('.contentlist').css('margin', '0');
+$('.contentlist li').attr('style', 'list-style: none !important; margin-bottom: 10px;');
+
+$(document).ready(function() {
+    hideBeta();
+});
+
+var mq = window.matchMedia("(max-width: 900px)");
+if (mq.matches) {
+    $(".no-description-banner-title").css("top", "14px");
+    $(".no-description-banner-title").css("color", "#fff");
+} else {
+    $(".no-description-banner-title").css("top", "0");
+    $(".no-description-banner-title").css("color", "#fff");
+}
+
+
+document.getElementById("word").addEventListener("click", hideExcel);
+document.getElementById("excel").addEventListener("click", hideWord);
+
+function hideExcel() {
+    $('.excel').hide();
+    $('.word').show();
+    $('#wordTab').css('background-color', '#0072c6');
+    $('#wordTab a').css('color', '#fff');
+    $('#excelTab').css('background-color', '#E4E4E4');
+    $('#excelTab a').css('color', '#0072c6');
+}
+
+function hideWord() {
+    $('.word').hide();
+    $('.excel').show();
+    $('#wordTab').css('background-color', '#E4E4E4');
+    $('#wordTab a').css('color', '#0072c6');
+    $('#excelTab').css('background-color', '#0072c6');
+    $('#excelTab a').css('color', '#fff');
+}
 // ]]></script>
-</p>
