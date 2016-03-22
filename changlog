@@ -15,7 +15,7 @@
 <div class="col-md-9 col-xs-12" style="background-color: #fff; padding-top: 10px; padding-bottom: 10px;">
 <h1 class="excel" id="february-2016">March 2016 Requirement 1.2</h1>
 <h2></h2>
-<h2 class="excel"style="margin-bottom: 5px;"><span>Worksheet Protection</span></h2>
+<h2 class="excel" style="margin-bottom: 5px;"><span>Worksheet Protection</span></h2>
 <div style="padding-left: 20px;">
 <p class="excel"><strong>Addition</strong></p>
 <ul class="contentlist">
@@ -43,7 +43,6 @@
 <li class="excel">-Supports analyzing data with advanced sorting in Excel for both Range and Table. - see <a href="https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/tablesort.md"> https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/tablesort.md</a></li>
 </ul>
 </div>
-
 <h2 class="excel" style="margin-bottom: 5px;"><span>Table</span></h2>
 <div style="padding-left: 20px;">
 <p class="excel"><strong>Addtions</strong></p>
@@ -51,7 +50,6 @@
 <li class="excel">-Adds support to convert a table into a normal range of cells while data is preserved. - see <a href="https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/table.md#converttorange"> https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/table.md#converttorange</a></li>
 </ul>
 </div>
-
 <h2 class="excel" style="margin-bottom: 5px;"><span>Chart</span></h2>
 <div style="padding-left: 20px;">
 <p class="excel"><strong>Addtions</strong></p>
@@ -59,7 +57,6 @@
 <li class="excel">- Adds support to render a chart as a base64-encoded image by scaling the chart to fit the specified dimensions. - see <a href="https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/chart.md#getimageheight-number-width-number-fittingmode-string"> https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/chart.md#getimageheight-number-width-number-fittingmode-string</a></li>
 </ul>
 </div>
-
 <h2 class="excel" style="margin-bottom: 5px;"><span>Range</span></h2>
 <div style="padding-left: 20px;">
 <p class="excel"><strong>Addtions</strong></p>
@@ -71,7 +68,6 @@
 <li class="excel">- <em>getUsedRange()</em> now supports a new optional parameter <em>valuesOnly</em>, When true only cells that currently have values are considered used cells. - see <a href="https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/range.md#getusedrangevaluesonly-bool"> https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/range.md#getusedrangevaluesonly-bool</a></li>
 </ul>
 </div>
-
 <h2 class="excel" style="margin-bottom: 5px;"><span>RangeFormat</span></h2>
 <div style="padding-left: 20px;">
 <p class="excel"><strong>Addtions</strong></p>
@@ -79,9 +75,6 @@
 <li class="excel">- Adds new properties <em>rowHeight</em>, <em>columnWidth</em> as well as methods <em>autofitRows()</em> and <em>autofitColumns()</em> to adjust row height and column width. - see <a href="https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/rangeformat.md"> https://github.com/skyms/office-js-docs/blob/ExcelJs_1.2_OpenSpec/excel/resources/rangeformat.md</a></li>
 </ul>
 </div>
-</div>
-
-
 <h1 class="excel" id="january-2016">April 2015 Requirement Set 1.1</h1>
 <h2></h2>
 <div class="excel" style="padding-left: 20px;">
@@ -89,61 +82,52 @@
 <li class="excel">-Introduced new JavaScript APIs for Excel. - see <a href="https://github.com/skyms/office-js-docs/tree/master/excel"> https://github.com/skyms/office-js-docs/tree/master/excel</a></li>
 </ul>
 </div>
-
+</div>
+<div class="col-md-9 col-xs-12" style="background-color: #fff; padding-top: 10px; padding-bottom: 10px;">
 <h1 class="word" id="february-2016">March 2016 Requirement 1.3</h1>
 <h2></h2>
-<h2 class="word"style="margin-bottom: 5px;"><span>Application</span></h2>
+<h2 class="word" style="margin-bottom: 5px;"><span>Application</span></h2>
 <div style="padding-left: 20px;">
 <p class="word"><strong>Addition</strong></p>
 <ul class="contentlist">
 <li class="word">- Add application object that represents the Microsoft Word application. This currently enables you to create a new Word document in memory. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/application.md"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/application.md</a></li>
 </ul>
 </div>
-
-<h2 class="word"style="margin-bottom: 5px;"><span>Range</span></h2>
+<h2 class="word" style="margin-bottom: 5px;"><span>Range</span></h2>
 <div style="padding-left: 20px;">
 <p class="word"><strong>Addition</strong></p>
 <ul class="contentlist">
 <li class="word">- Adds new method <em>Range.getChildRange()</em> to get a range with an origin at either the beginning or end of an body object. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getchildrangerangeorigin-string-length-number"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getchildrangerangeorigin-string-length-number</a></li>
-<li class="word">- <em>Range.getRange()</em>  supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
-
+<li class="word">- <em>Range.getRange()</em> supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
 <li class="word">- Add new method <em>Range.hasRange</em> that compares whether a range contains another range. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#hasrangerange-range-issubset-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#hasrangerange-range-issubset-bool</a></li>
-
 <li class="word">- Add new method <em>Range.expandTo</em> that expands the range to include the bounds of another range. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#expandtorange-range"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#expandtorange-range</a></li>
-
 <li class="word">- Add new method <em>Range.adjust</em> that adjusts the start and end position of a range. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#adjuststartadjust-number-endadjust-number"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/range.md#adjuststartadjust-number-endadjust-number</a></li>
 </ul>
 </div>
-
-<h2 class="word"style="margin-bottom: 5px;"><span>Body</span></h2>
+<h2 class="word" style="margin-bottom: 5px;"><span>Body</span></h2>
 <div style="padding-left: 20px;">
 <p class="word"><strong>Addition</strong></p>
 <ul class="contentlist">
 <li class="word">- Adds new method <em>Body.getChildRange()</em> to get a range with an origin at either the beginning or end of an body object. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getchildrangerangeorigin-string-length-number"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getchildrangerangeorigin-string-length-number</a></li>
-<li class="word">- <em>Body.getRange()</em>  supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
+<li class="word">- <em>Body.getRange()</em> supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/body.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
 </ul>
 </div>
-
-
-<h2 class="word"style="margin-bottom: 5px;"><span>Content Control</span></h2>
+<h2 class="word" style="margin-bottom: 5px;"><span>Content Control</span></h2>
 <div style="padding-left: 20px;">
 <p class="word"><strong>Addition</strong></p>
 <ul class="contentlist">
 <li class="word">- Adds new method <em>ContentControl.getChildRange()</em> to get a range with an origin at either the beginning or end of an body object. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getchildrangerangeorigin-string-length-number"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getchildrangerangeorigin-string-length-number</a></li>
-<li class="word">- <em>ContentControl.getRange()</em>  supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
+<li class="word">- <em>ContentControl.getRange()</em> supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
 </ul>
 </div>
-
-<h2 class="word"style="margin-bottom: 5px;"><span>Paragraph</span></h2>
+<h2 class="word" style="margin-bottom: 5px;"><span>Paragraph</span></h2>
 <div style="padding-left: 20px;">
 <p class="word"><strong>Addition</strong></p>
 <ul class="contentlist">
 <li class="word">- Adds new method <em>Paragraph.getChildRange()</em> to get a range with an origin at either the beginning or end of an body object. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/paragraph.md#getchildrangerangeorigin-string-length-number"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getchildrangerangeorigin-string-length-number</a></li>
-<li class="word">- <em>Paragraph.getRange()</em>  supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/paragraph.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
+<li class="word">- <em>Paragraph.getRange()</em> supports <em>delimiters</em> as parameter. - see <a href="https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/contentcontrol.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool"> https://github.com/skyms/office-js-docs/blob/WordJs_1.3_Openspec/word/word-add-ins-javascript-reference/paragraph.md#getrangesdelimiters-string-excludedelimiters-bool-trimwhite-bool-excludeendingmarks-bool</a></li>
 </ul>
 </div>
-
-
 <h1 class="word" id="january-2016">April 2015 Requirement Set 1.1</h1>
 <h2></h2>
 <div class="word" style="padding-left: 20px;">
@@ -151,9 +135,6 @@
 <li class="word">-Introduced new JavaScript APIs for Excel. - see <a href="https://github.com/skyms/office-js-docs/tree/master/word"> https://github.com/skyms/office-js-docs/tree/master/word</a></li>
 </ul>
 </div>
-
-
-
 </div>
 </div>
 </div>
