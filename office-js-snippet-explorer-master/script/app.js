@@ -65,10 +65,10 @@ officeJsSnippetApp.controller("SamplesController", function($scope, $routeParams
 	$scope.insideOffice = insideOffice;
 	
 	CodeEditorIntegration.initializeJsEditor('TxtRichApiScript', [
-			"/editorIntelliSense/ExcelLatest.txt",
-			"/editorIntelliSense/WordLatest.txt",
-			"/editorIntelliSense/OfficeCommon.txt",
-			"/editorIntelliSense/OfficeDocument.txt"
+			"/office-js-snippet-explorer-master/editorIntelliSense/ExcelLatest.txt",
+			"/office-js-snippet-explorer-master/editorIntelliSense/WordLatest.txt",
+			"/office-js-snippet-explorer-master/editorIntelliSense/OfficeCommon.txt",
+			"/office-js-snippet-explorer-master/editorIntelliSense/OfficeDocument.txt"
 	]);
 	
 	CodeEditorIntegration.setDirty = function() {
