@@ -1,6 +1,7 @@
 
 Excel.run(function (ctx) {
-	ctx.workbook.worksheets.getItem("Sheet1").charts.add("ColumnClustered", "Sheet1!A1:D5", Excel.ChartSeriesBy.auto);
+	var range = ctx.workbook.worksheets.getItem("Sheet1").getRange("Sheet1!A1:D5");
+	ctx.workbook.worksheets.getItem("Sheet1").charts.add("ColumnClustered", range , Excel.ChartSeriesBy.auto);
 }).catch(function (error) {
 	console.log(error);
 });
