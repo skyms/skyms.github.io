@@ -6,7 +6,7 @@
 		{ "done": true, "filename": "setFormulaInRange.js", "name": "Set Single Formula in Range", "group": "Range", "description": "Set the formula in all cells in the range A1:C3 to '=RAND()*17'"},
 		{ "done": true, "filename": "setFormulasInRange.js", "name": "Set Multiple Formulas in Range", "group": "Range", "description": "Set the formulas in the range A1:B2 to an array of different formulas"},
 		{ "done": true, "filename": "getFormulasInRange.js", "name": "Get Formulas in Range", "group": "Range", "description": "Retrieve the formulas in the range A1:C3"},
-		{ "done": true, "filename": "protectWorksheet.js", "name": "Protect Worksheet", "group": "Worksheet; Protect", "description": "Protect the current worksheet from editing."},
+		{ "done": true, "filename": "protectWorksheet.js", "name": "Protect Worksheet", "group": "Worksheet;Protection", "description": "Protect the current worksheet from editing."},
 		{ "done": true, "filename": "filter.js", "name": "filter", "group": "SortFilter;Range", "description": "Apply Filter to the first column in table to only show data above average."},
 		{ "done": true, "filename": "sort.js", "name": "sort", "group": "SortFilter;Table", "description": "Sort the first column in a range in descending order"},
 		{ "done": true, "filename": "clearRange.js", "name": "Clear Range Content", "group": "Range", "description": "Clear content from the range A1:C1"},

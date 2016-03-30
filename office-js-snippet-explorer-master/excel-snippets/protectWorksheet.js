@@ -1,7 +1,7 @@
 
 Excel.run(function (ctx) {
 	var worksheet = ctx.workbook.worksheets.getActiveWorksheet();
-	worksheet.protect();
+	worksheet.protection.protect();
 
 	return ctx.sync();	
 }).catch(function (error) {
