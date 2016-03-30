@@ -6,6 +6,10 @@
 		{ "done": true, "filename": "setFormulaInRange.js", "name": "Set Single Formula in Range", "group": "Range", "description": "Set the formula in all cells in the range A1:C3 to '=RAND()*17'"},
 		{ "done": true, "filename": "setFormulasInRange.js", "name": "Set Multiple Formulas in Range", "group": "Range", "description": "Set the formulas in the range A1:B2 to an array of different formulas"},
 		{ "done": true, "filename": "getFormulasInRange.js", "name": "Get Formulas in Range", "group": "Range", "description": "Retrieve the formulas in the range A1:C3"},
+		{ "done": true, "filename": "protectWorksheet.js", "name": "Protect Worksheet", "group": "Worksheet; Protect", "description": "Protect the current worksheet from editing."},
+		{ "done": true, "filename": "filter.js", "name": "filter", "group": "Sort&Filter;Table", "description": "Apply Filter to the first column in table to only show data above average."},
+		{ "done": true, "filename": "sort.js", "name": "sort", "group": "Sort&Filter;Table", "description": "Sort the first column in a range in descending order"},
+		{ "done": true, "filename": "clearRange.js", "name": "Clear Range Content", "group": "Range", "description": "Clear content from the range A1:C1"},
 		{ "done": true, "filename": "clearRange.js", "name": "Clear Range Content", "group": "Range", "description": "Clear content from the range A1:C1"},
         { "done": true, "filename": "insertRange.js", "name": "Insert Range", "group": "Range", "description": "Insert a 3x3 range at A1, shifting cells to the right" },
         { "done": true, "filename": "selectNamedRange.js", "name": "Select a Named Range", "group": "Range", "description": "Select the range named myData" },
@@ -51,6 +55,7 @@
         { "done": true, "filename": "getActiveWorksheet.js", "name": "Get Active Worksheet", "group": "Worksheet", "description": "Get the name of the workbook's active worksheet" },
         { "done": true, "filename": "tableWithEventHandler.js", "name": "Monitor Data Change Event on a Table", "group": "Table;Complex", "description": "Create a table binding to monitor data changes in the table. When data is changed, the background color of the table will be changed to orange." },
 		{ "done": true, "filename": "reference.js", "name": "Keep Reference to a Range", "group": "Range", "description": "Keep reference to a Range" },
+		{ "done": true, "filename": "reference.js", "name": "Keep Reference to a Range", "group": "WorksheetFunctions", "description": "Keep reference to a Range" },
 		{ "done": true, "filename": "deleteActiveWorksheet.js", "name": "Delete Active Worksheet", "group": "Worksheet", "description": "Delete the active worksheet from the workbook"} 
 	],
 	"groups": [
@@ -60,6 +65,8 @@
 		{ "name": "Formatting" },
 		{ "name": "Worksheet" },
 		{ "name": "Application" },
+		{ "name": "Sort&Filter" },
+		{ "name": "Protection" },
 		{ "name": "Complex" }
 	],
 	"suggestions": [
