@@ -495,8 +495,7 @@
 			semestersummarychart.dataLabels.showValue = true;
 			semestersummarychart.series.getItemAt(0).format.fill.setSolidColor("green");
 
-			// Run the queued-up commands, and return a promise to indicate task completion
-			return ctx.sync();
+			
 			// Queue commands to format the table
 			var range = dashboardSheet.getRange("A24:I24");
 			range.format.font.size = 11;
@@ -557,27 +556,9 @@
 			dashboardSheet.getRange("C20:E20").format.fill.color = "2A4C69";
 
 
-			// Queue commands to create the chart based on the semester data
-			// Queue commands to set the title for the chart
-			var charttitle = "SEMESTER SUMMARY";
-			dashboardSheet.getRange("A3:A3").values = charttitle;
-			dashboardSheet.getRange("A3:A3").format.font.name = "Franklin Gothic Medium";
-			dashboardSheet.getRange("A3:A3").format.font.size = 11;
-			var semestersummarytitle = "Semester Summary Data";
-			dashboardSheet.getRange("C10:C10").values = semestersummarytitle;
-			dashboardSheet.getRange("C10:C10").format.font.name = "Century";
-			dashboardSheet.getRange("C10:E10").format.font.size = 11;
-			dashboardSheet.getRange("C10:E10").format.fill.color = "1E8FEB";
-			dashboardSheet.getRange("C10:E10").format.font.color = "white";
-
-			// Queue commands to create a chart and format it
-			var chartDataRange = dashboardSheet.getRange("C11:E19");
-			var semestersummarychart = dashboardSheet.charts.add("BarClustered", chartDataRange, "auto");
-			semestersummarychart.setPosition("A4", "A19");
-			semestersummarychart.legend.position = "right";
-			semestersummarychart.title.visible = false;
-			semestersummarychart.dataLabels.showValue = true;
-			semestersummarychart.series.getItemAt(0).format.fill.setSolidColor("green");
+		    // Queue commands to autofit rows and columns in a sheet
+			dashboardSheet.getUsedRange().getEntireColumn().format.autofitColumns();
+			dashboardSheet.getUsedRange().getEntireRow().format.autofitRows();
 
 			// Run the queued-up commands, and return a promise to indicate task completion
 			return ctx.sync();
@@ -604,6 +585,7 @@
 
 			// Queue a command to add a new row at the end of the table for the course
 			tableRows.add(null, [[$("#course-name option:selected").text(), $("#course-id").val(), $("#credit-type").val(), $("#credits").val(), $("input[type='radio']:checked").val(), $("#semester").val()]]);
+
 
 			// Run the queued-up commands, and return a promise to indicate task completion
 			return ctx.sync();
