@@ -7,9 +7,6 @@
 		{ "done": true, "filename": "setFormulasInRange.js", "name": "Set Multiple Formulas in Range", "group": "Range", "description": "Set the formulas in the range A1:B2 to an array of different formulas"},
 		{ "done": true, "filename": "getFormulasInRange.js", "name": "Get Formulas in Range", "group": "Range", "description": "Retrieve the formulas in the range A1:C3"},
 		{ "done": true, "filename": "protectWorksheet.js", "name": "Protect Worksheet", "group": "Worksheet;Protection", "description": "Protect the current worksheet from editing."},
-		{ "done": true, "filename": "filter.js", "name": "filter", "group": "SortFilter;Table;Demo", "description": "Apply Filter to the first column in table to only show data above average."},
-		{ "done": true, "filename": "sort.js", "name": "sort", "group": "SortFilter;Table", "description": "Sort the first column in a range in descending order"},
-		{ "done": true, "filename": "sort.js", "name": "sort", "group": "SortFilter;Demo", "description": "Sort the first column in a Table in descending order"},
 		{ "done": true, "filename": "clearRange.js", "name": "Clear Range Content", "group": "Range", "description": "Clear content from the range A1:C1"},
 		{ "done": true, "filename": "clearRange.js", "name": "Clear Range Content", "group": "Range", "description": "Clear content from the range A1:C1"},
         { "done": true, "filename": "insertRange.js", "name": "Insert Range", "group": "Range", "description": "Insert a 3x3 range at A1, shifting cells to the right" },
@@ -57,6 +54,9 @@
         { "done": true, "filename": "tableWithEventHandler.js", "name": "Monitor Data Change Event on a Table", "group": "Table;Complex", "description": "Create a table binding to monitor data changes in the table. When data is changed, the background color of the table will be changed to orange." },
 		{ "done": true, "filename": "reference.js", "name": "Keep Reference to a Range", "group": "Range", "description": "Keep reference to a Range" },
 		{ "done": true, "filename": "reference.js", "name": "Keep Reference to a Range", "group": "WorksheetFunctions", "description": "Keep reference to a Range" },
+		{ "done": true, "filename": "filter.js", "name": "filter", "group": "SortFilter;Table;Demo", "description": "Apply Filter to the third column in table to only show data above average."},
+		{ "done": true, "filename": "sort.js", "name": "sort", "group": "SortFilter;Table", "description": "Sort the first column in a range in descending order"},
+		{ "done": true, "filename": "tablesort.js", "name": "sort the table based on Sales", "group": "Demo", "description": "Sort the first column in a Table in descending order"},
 		{ "done": true, "filename": "deleteActiveWorksheet.js", "name": "Delete Active Worksheet", "group": "Worksheet", "description": "Delete the active worksheet from the workbook"} 
 	],
 	"groups": [
