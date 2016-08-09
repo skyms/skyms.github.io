@@ -25,7 +25,22 @@
             var optionSelected = $("option:selected", this);
             var valueSelected = this.value;
             fillPolicyRelatedFields(valueSelected);
+
         });
+
+        $('#insurance-amount').on('change', function (e) {
+            var insuranceAmount = $('#insurance-amount').val();
+            var sampleRate = $('#sample-rate').val();
+            $('#monthly-payment').text(insuranceAmount*sampleRate/10000 + '$');
+        });
+
+        $('#save-prospect').click(saveProspect);
+
+        //$('#sample-rate').on('change', function (e) {
+        //    var insuranceAmount = $('#insurance-amount').val();
+        //    var sampleRate = $('#sample-rate').val();
+        //    $('#monthly-payment').text(insuranceAmount * sampleRate / 10000 + '$');
+        //});
 
         createMyPropectsTrackerSheet();
         importSampleData();
@@ -322,6 +337,7 @@
             .then(function () {
                 $('#applicant-age').val(age);
                 $('#applicant-gender').val(gender);
+
             })
         })
 
@@ -330,43 +346,48 @@
             });
     }
 
-    function fillPolicyRelatedFields(selectedApplicant) {
+    function fillPolicyRelatedFields(selectedPolicy) {
 
         // Run a batch operation against the Excel object model
         Excel.run(function (ctx) {
 
             // Queue a command to get the transactions table
-            var policiesTable = ctx.workbook.tables.getItem("ApplicantsTable");
-            var applicantNameColumn = applicantsTable.columns.getItem("Applicant").getDataBodyRange().load("values");
-            var applicantAgeColumn = applicantsTable.columns.getItem("Age").getDataBodyRange().load("values");
-            var applicantGenderColumn = applicantsTable.columns.getItem("Gender").getDataBodyRange().load("values");
+            var policiesTable = ctx.workbook.tables.getItem("PoliciesTable");
+            var policyNameColumn = policiesTable.columns.getItem("Policy").getDataBodyRange().load("values");
+            var policyExamColumn = policiesTable.columns.getItem("MedicalExamRequired").getDataBodyRange().load("values");
+            var policySampleRateColumn = policiesTable.columns.getItem("SampleRateFor$10000").getDataBodyRange().load("values");
 
-            var indexOfSelectedAgent, age, gender;
+            var indexOfSelectedPolicy, exam, sampleRate;
 
             // Run all of the above queued-up commands, and return a promise to indicate task completion
             return ctx.sync().then(function () {
 
-                var applicantNameArrays = applicantNameColumn.values;
-                var applicantNameColumnValueArray = applicantNameArrays.map(function (item) { return item[0] });
+                var policyNameArrays = policyNameColumn.values;
+                var policyNameColumnValueArray = policyNameArrays.map(function (item) { return item[0] });
 
-                indexOfSelectedAgent = applicantNameColumnValueArray.indexOf(selectedApplicant);
+                indexOfSelectedPolicy = policyNameColumnValueArray.indexOf(selectedPolicy);
 
-                var applicantAgeColumnArrays = applicantAgeColumn.values;
-                var applicantAgeColumnValueArray = applicantAgeColumnArrays.map(function (item) { return item[0] });
+                var policyExamColumnArrays = policyExamColumn.values;
+                var policyExamColumnValueArray = policyExamColumnArrays.map(function (item) { return item[0] });
 
-                age = applicantAgeColumnValueArray[indexOfSelectedAgent];
+                exam = policyExamColumnValueArray[indexOfSelectedPolicy];
 
-                var applicantGenderColumnArrays = applicantGenderColumn.values;
-                var applicantGenderColumnValueArray = applicantGenderColumnArrays.map(function (item) { return item[0] });
+                var policySampleRateColumnArrays = policySampleRateColumn.values;
+                var policySampleRateColumnValueArray = policySampleRateColumnArrays.map(function (item) { return item[0] });
 
-                gender = applicantGenderColumnValueArray[indexOfSelectedAgent];
+                sampleRate = policySampleRateColumnValueArray[indexOfSelectedPolicy];
 
                 return ctx.sync();
 
             })
             .then(function () {
-                $('#applicant-age').val(age);
-                $('#applicant-gender').val(gender);
+                $('#exam-required').checked = exam;
+                $('#sample-rate').val(sampleRate);
+            })
+            .then(function () {
+                var insuranceAmount = $('#insurance-amount').val();
+                var sampleRate = $('#sample-rate').val();
+                $('#monthly-payment').text(insuranceAmount * sampleRate / 10000 + '$');
             })
         })
 
@@ -375,23 +396,35 @@
             });
     }
 
+    function calculateMonthlyPayment(insuranceAmount) {
+        var sampleRate = $('#sample-rate').val;
+        var monthlyPayment = insuranceAmount * sampleRate;
+     
+        $('#monthly').innerText = monthlyPayment;
+    }
 
-    //// Reads data from current document selection and displays a notification
-    //function getDataFromSelection() {
-    //    if (Office.context.document.getSelectedDataAsync) {
-    //        Office.context.document.getSelectedDataAsync(Office.CoercionType.Text,
-    //            function (result) {
-    //                if (result.status === Office.AsyncResultStatus.Succeeded) {
-    //                    showNotification('The selected text is:', '"' + result.value + '"');
-    //                } else {
-    //                    showNotification('Error:', result.error.message);
-    //                }
-    //            }
-    //        );
-    //    } else {
-    //        app.showNotification('Error:', 'Reading selection data is not supported by this host application.');
-    //    }
-    //}
+
+    function saveProspect() {
+        // Run a batch operation against the Excel object model
+        Excel.run(function (ctx) {
+
+            // Create a proxy object for the expense table rows
+            var tableRows = ctx.workbook.tables.getItem('prospectsTable').rows;
+            tableRows.add(null, [[$("#agent-name").val(), $("#applicant-name").val(), $("#applicant-age").val(), $("#applicant-gender").val(), $("#policy-name").val(), $("#exam-required").checked(), $("#sample-rate").val(), $("#insurance-amount").val(), $("#monthly-payment").text]]);
+
+            // Run the queued-up commands, and return a promise to indicate task completion
+            return ctx.sync();
+        })
+		.catch(function (error) {
+		    // Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
+		    app.showNotification("Error: " + error);
+		    console.log("Error: " + error);
+		    if (error instanceof OfficeExtension.Error) {
+		        console.log("Debug info: " + JSON.stringify(error.debugInfo));
+		    }
+		});
+
+    }
 
     // Helper function for displaying notifications
     function showNotification(header, content) {
@@ -474,6 +507,16 @@
                 range.format.font.size = 10;
                 range.format.font.bold = true;
                 break;
+        }
+    }
+
+    // Handle errors
+    function handleError(error) {
+        // Always be sure to catch any accumulated errors that bubble up from the Excel.run execution
+        app.showNotification("Error: " + error);
+        console.log("Error: " + error);
+        if (error instanceof OfficeExtension.Error) {
+            console.log("Debug info: " + JSON.stringify(error.debugInfo));
         }
     }
 })();

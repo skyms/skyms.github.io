@@ -48,6 +48,7 @@
     </None>
     <Content Include="HumongousInsuranceAgentsAddinManifest\HumongousInsuranceAgentsAddin.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="HumongousInsuranceExcelSpreadsheet.xlsx" />
   </ItemGroup>

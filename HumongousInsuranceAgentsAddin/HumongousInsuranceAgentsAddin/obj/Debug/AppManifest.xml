@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
      Name="HumongousInsuranceAgentsAddin"
-     ProductID="{1bf157b5-6b9e-49f8-b746-23405da8475f}"
+     ProductID="{3c9c5784-46d3-4b31-a083-d57aac195b56}"
      Version="1.0.0.0"
      SharePointMinVersion="15.0.0.0"
 >
