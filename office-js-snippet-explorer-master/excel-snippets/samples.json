@@ -68,6 +68,7 @@
 		{ "name": "Application" },
 		{ "name": "SortFilter" },
 		{ "name": "Protection" },
+		{ "name": "Demo" },
 		{ "name": "Complex" }
 	],
 	"suggestions": [
