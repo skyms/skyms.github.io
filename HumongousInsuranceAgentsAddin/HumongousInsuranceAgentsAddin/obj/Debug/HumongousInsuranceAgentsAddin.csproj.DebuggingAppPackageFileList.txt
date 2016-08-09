@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\HumongousInsuranceAgentsAddinManifest.xml
+c:\users\temp\documents\visual studio 2015\Projects\HumongousInsuranceAgentsAddin\HumongousInsuranceAgentsAddin\bin\Debug\HumongousInsuranceAgentsAddin.debugapp

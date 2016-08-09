@@ -1,0 +1,7 @@
+False
+82e56699-fb11-47da-a273-62d8d1d1bf5c00e96b70-4f0d-4b31-ae20-ee028271d109
+{37e4cc8a-4914-472f-8722-0342f3f27cea}{0f4b857e-3595-45fd-976f-cebfaf6be9d3}
+{c70b3d9c-3f89-444c-b3fb-b7ad3e8acbef}
+1.0.0.0
+HumongousInsuranceAgentsAddin
+_layouts/15/
