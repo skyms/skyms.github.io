@@ -36,14 +36,8 @@
 
         $('#save-prospect').click(saveProspect);
 
-        //$('#sample-rate').on('change', function (e) {
-        //    var insuranceAmount = $('#insurance-amount').val();
-        //    var sampleRate = $('#sample-rate').val();
-        //    $('#monthly-payment').text(insuranceAmount * sampleRate / 10000 + '$');
-        //});
-
         createMyPropectsTrackerSheet();
-        importSampleData();
+        //importSampleData();
         fillDropDownMenus();
     };
 
@@ -61,7 +55,7 @@
             var sheetHeading1 = "In Agent Center, you can easily track and manage prospects.";
 
             // Add all static content to the Welcome sheet and format the text
-            addContentToWorksheet(prospectsSheet, "B1:K1", sheetTitle, "SheetTitle");
+            addContentToWorksheet(prospectsSheet, "B1:X1", sheetTitle, "SheetTitle");
             addContentToWorksheet(prospectsSheet, "B3:K3", sheetHeading1, "SheetHeading");
 
             //Queue commands to autofit rows and columns in the sheet
