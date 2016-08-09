@@ -1,7 +1,8 @@
 
 Excel.run(function (ctx) {
-	ctx.workbook.worksheets.add("Sheet" + Math.floor(Math.random()*100000).toString());
+	var ws = ctx.workbook.worksheets.add("Sheet" + Math.floor(Math.random()*100000).toString());
+	ws.activate();
 	return ctx.sync();	
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

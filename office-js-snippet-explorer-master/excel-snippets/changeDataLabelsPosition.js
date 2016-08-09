@@ -4,5 +4,5 @@ Excel.run(function (ctx) {
 	chart.dataLabels.position = Excel.ChartDataLabelPosition.top;
 	return ctx.sync();	
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

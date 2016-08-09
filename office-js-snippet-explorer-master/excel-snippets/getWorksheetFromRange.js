@@ -5,5 +5,5 @@ Excel.run(function (ctx) {
         console.log(selectedRangeWorksheet.name);
     });
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

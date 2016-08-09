@@ -4,5 +4,5 @@ Excel.run(function (ctx) {
 	chart.legend.visible = true;
 	return ctx.sync();
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

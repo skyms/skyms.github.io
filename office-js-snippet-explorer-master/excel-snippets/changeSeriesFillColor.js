@@ -4,5 +4,5 @@ Excel.run(function (ctx) {
 	chart.series.getItemAt(0).format.fill.setSolidColor("#FF0000");
 	return ctx.sync();
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

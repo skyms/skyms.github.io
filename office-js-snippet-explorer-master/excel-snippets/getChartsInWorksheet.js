@@ -8,5 +8,5 @@ Excel.run(function (ctx) {
 		console.log("done");
 	});
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

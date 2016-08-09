@@ -5,5 +5,5 @@ Excel.run(function (ctx) {
 	chart.title.format.font.color = "#FF0000";
 	return ctx.sync();		
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

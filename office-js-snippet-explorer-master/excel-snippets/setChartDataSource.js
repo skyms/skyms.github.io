@@ -4,5 +4,5 @@ Excel.run(function (ctx) {
 	chart.setData("Sheet1!A1:B4", Excel.ChartSeriesBy.columns);
 	return ctx.sync();	
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

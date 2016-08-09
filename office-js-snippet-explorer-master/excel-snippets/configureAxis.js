@@ -9,5 +9,5 @@ Excel.run(function (ctx) {
 
 	return ctx.sync();	
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

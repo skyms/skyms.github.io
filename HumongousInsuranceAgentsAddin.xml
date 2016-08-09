@@ -32,7 +32,7 @@
     <Host Name="Workbook" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://skyms.github.io/HumongousInsuranceAgentsAddin/HumongousInsuranceAgentsAddinWeb/App/Home/Home.html" />
+    <SourceLocation DefaultValue="https://skyms.github.io/HumongousInsuranceAgentsAddin/HumongousInsuranceAgentsAddinWeb/Home/Home.html" />
     <RequestedWidth>1000</RequestedWidth>
     <RequestedHeight>700</RequestedHeight>
   </DefaultSettings>

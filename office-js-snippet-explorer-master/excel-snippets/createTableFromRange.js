@@ -1,7 +1,12 @@
 
 Excel.run(function (ctx) {
-	ctx.workbook.tables.add('Sheet1!A1:E7', true);
-	return ctx.sync();
+	var range = ctx.workbook.worksheets.getActiveWorksheet().getUsedRange();
+	range.load("address");
+	return ctx.sync()
+	.then(function() {
+			ctx.workbook.tables.add(range.address, true);
+		}).
+		then(ctx.sync);
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });

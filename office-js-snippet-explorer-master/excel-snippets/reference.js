@@ -6,5 +6,5 @@ Excel.run(function (ctx) {
     newRange.format.fill.color = "Yellow";
     return ctx.sync();
 }).catch(function (error) {
-	console.log(error);
+	console.log(JSON.stringify(error));
 });
