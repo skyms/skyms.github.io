@@ -60,6 +60,7 @@
 		{ "done": true, "filename": "deleteActiveWorksheet.js", "name": "Delete Active Worksheet", "group": "Worksheet", "description": "Delete the active worksheet from the workbook"} 
 	],
 	"groups": [
+		{ "name": "Demo" },
 		{ "name": "Range" },
 		{ "name": "Table" },
 		{ "name": "Chart" },
@@ -68,7 +69,6 @@
 		{ "name": "Application" },
 		{ "name": "SortFilter" },
 		{ "name": "Protection" },
-		{ "name": "Demo" },
 		{ "name": "Complex" }
 	],
 	"suggestions": [
